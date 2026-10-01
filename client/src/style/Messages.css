@@ -158,10 +158,7 @@
     font-weight: 500;
     display: block;
     color: #224c44;
-
     text-align: right;
-
-
 }
 
 
@@ -267,7 +264,9 @@
 }
 
 
-
+body.dark-theme .message-bubble span {
+    color: #393c3c;
+}
 body.dark-theme .message-bubble.single-emoji-bubble .message-meta {
 
     background: #005c4b;
@@ -403,6 +402,9 @@ body.dark-theme .message-bubble.single-emoji-bubble .message-read-icon.read {
     background: #ffffff;
         color: #263d43;
         border-bottom-left-radius: 5px;
+}
+body.dark-theme .message-row.received .message-bubble.single-emoji-bubble .message-meta{
+    background: #18232c;
 }
 body.dark-theme .message-row.received .message-bubble {
     background: #18232c;
@@ -4448,7 +4450,7 @@ body.dark-theme .popup-delete-btn:hover {
 
 
 body.dark-theme .message-read-icon {
-    color: #8696a0;
+    color: #393c3c;
 }
 
 body.dark-theme .message-read-icon.read {

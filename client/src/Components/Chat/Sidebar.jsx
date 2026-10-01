@@ -50,7 +50,7 @@ const Sidebar = () => {
                     }} >
                     <FaCog />
                     <span>Settings</span>
-                    <FaChevronDown className={`settings-arrow ${settingsOpen ? "rotate" : ""}`} />
+                    {/* <FaChevronDown className={`settings-arrow ${settingsOpen ? "rotate" : ""}`} /> */}
 
                 </button>
 
