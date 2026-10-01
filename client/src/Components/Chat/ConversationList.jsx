@@ -9,7 +9,7 @@ import white from "../../assets/logo.png";
 import dark from "../../assets/msg.png";
 
 
-const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) => {
+const ConversationList = ({ selectedChat, setSelectedChat, type = "private", setCreateGroupOpen }) => {
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [search, setSearch] = useState("");
@@ -456,8 +456,11 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
     );
 
     const handleNewGroup = () => {
-        console.log("New Group");
+        console.log("New Group clicked");
         setMenuOpen(false);
+        if (setCreateGroupOpen) {
+            setCreateGroupOpen(true);
+        }
     };
 
     const handleSelectChats = () => {
@@ -508,11 +511,16 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
 
                     {menuOpen && (
                         <div className="conversation-dropdown">
-                            <button type="button" onClick={handleNewGroup}>
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    console.log("New Group clicked");
+                                    setMenuOpen(false);
+                                    setCreateGroupOpen(true);
+                                }}
+                            >
                                 <FaPlus />
-                                <span>
-                                    New Group
-                                </span>
+                                <span>New Group</span>
                             </button>
 
                             <button type="button" onClick={handleSelectChats}>
