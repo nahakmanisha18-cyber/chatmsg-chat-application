@@ -519,16 +519,30 @@ const MessageInput = ({ selectedChat, setMessages, isGroup = false, groupId = nu
             );
 
             const serverMessage =
-                response.data?.message ||
-                response.data?.data;
+                response.data?.data ||
+                (typeof response.data?.message === "object"
+                    ? response.data.message
+                    : null);
+
             if (serverMessage && setMessages) {
-                setMessages((prev) =>
-                    prev.map((item) =>
-                        item._id?.toString().startsWith("temp-")
-                            ? serverMessage
-                            : item
-                    )
-                );
+                setMessages((prev) => { 
+                    const alreadyExists = prev.some(
+                        (item) =>
+                            item?._id &&
+                            serverMessage?._id &&
+                            item._id.toString() === serverMessage._id.toString()
+                    );
+                    const withoutTemp = prev.filter(
+                        (item) => !item?._id?.toString().startsWith("temp-")
+                    );
+                    if (alreadyExists) {
+                        return withoutTemp;
+                    }
+                    return [
+                        ...withoutTemp,
+                        serverMessage
+                    ];
+                });
             }
             setMessage("");
 
