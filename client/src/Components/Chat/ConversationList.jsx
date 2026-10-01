@@ -36,34 +36,34 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
 
 
                 const conversationList = type === "group" ? response.data?.groups || [] : response.data?.conversations || [];
-
                 if (type === "group") {
 
                     setConversations(
                         conversationList.map((group) => {
+                            const lastMessage = group.lastMessage || null;
+                            const lastMessageSenderId = lastMessage?.sender?._id || lastMessage?.sender?.id || lastMessage?.sender || "";
+                            const isSent = lastMessageSenderId && currentUserId && lastMessageSenderId.toString() === currentUserId.toString();
 
                             return {
                                 id: group._id,
                                 name: group.name,
                                 profileImage: group.groupImage || "",
                                 online: false,
-                                message: group.lastMessage || null,
-                                messageType: group.lastMessage?.messageType || "text",
-                                fileUrl: group.lastMessage?.fileUrl || "",
-                                fileName: group.lastMessage?.fileName || "",
-                                sender: group.lastMessage?.sender || "",
-                                isSent: false,
-                                isRead: true,
-                                time:
-                                    group.lastMessage?.createdAt
-                                        ? new Date(
-                                            group.lastMessage.createdAt
-                                        ).toLocaleTimeString([], {
-                                            hour: "2-digit",
-                                            minute: "2-digit",
-                                        })
-                                        : "",
-
+                                message: lastMessage,
+                                messageType: lastMessage?.messageType || "text",
+                                fileUrl: lastMessage?.fileUrl || "",
+                                fileName: lastMessage?.fileName || "",
+                                sender: lastMessage?.sender || "",
+                                isSent,
+                                isRead: false,
+                                time: lastMessage?.createdAt
+                                    ? new Date(
+                                        lastMessage.createdAt
+                                    ).toLocaleTimeString([], {
+                                        hour: "2-digit",
+                                        minute: "2-digit",
+                                    })
+                                    : "",
                                 unread: group.unreadCount || 0,
                                 members: group.members || [],
                                 isGroup: true,
@@ -75,37 +75,23 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
                     return;
                 }
 
-
                 setConversations(
                     conversationList.map((item) => {
-
                         const lastMessage = item.lastMessage || null;
                         const lastMessageSenderId = lastMessage?.sender?._id || lastMessage?.sender?.id || lastMessage?.sender || "";
 
                         return {
-
                             id: item.user._id,
-
                             name: item.user.fullName,
-
                             profileImage: item.user.profileImage || "",
-
                             online: item.user.isOnline || false,
-
                             message: lastMessage,
-
                             messageType: lastMessage?.messageType || "text",
-
                             fileUrl: lastMessage?.fileUrl || "",
-
                             fileName: lastMessage?.fileName || "",
-
                             sender: lastMessage?.sender || "",
-
                             isSent: lastMessageSenderId && currentUserId && lastMessageSenderId.toString() === currentUserId.toString(),
-
                             isRead: lastMessage?.isRead || false,
-
                             time: lastMessage?.createdAt
                                 ? new Date(
                                     lastMessage.createdAt
@@ -134,6 +120,8 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
         fetchConversations();
 
     }, []);
+
+
     const updateConversationPreview = (messageData) => {
         const senderId = messageData.sender?._id || messageData.sender?.id || messageData.sender;
         const receiverId = messageData.receiver?._id || messageData.receiver?.id || messageData.receiver;
@@ -211,41 +199,150 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
 
         const joinUser = () => {
 
-            const user = JSON.parse(localStorage.getItem("user"));
+            const user = JSON.parse(
+                localStorage.getItem("user")
+            );
             const userId = user?._id || user?.id || user?.userId;
-
             console.log("CONVERSATION LIST USER:", userId);
-
             if (userId) {
-                socket.emit("join", userId.toString());
+                socket.emit("join", userId.toString()
+                );
                 console.log("CONVERSATION LIST JOIN ROOM:", userId.toString());
             }
         };
 
         const handleReceiveMessage = (messageData) => {
-            console.log(" CONVERSATION LIST SOCKET:", messageData);
-            updateConversationPreview(messageData);
+
+            console.log(
+                "PRIVATE MESSAGE:",
+                messageData
+            );
+
+            if (type !== "group") {
+                updateConversationPreview(
+                    messageData
+                );
+            }
         };
 
+        const handleGroupMessage = (messageData) => {
+
+            console.log("GROUP MESSAGE:", messageData);
+
+            if (type !== "group") {
+                return;
+            }
+            const groupId = messageData?.group?._id || messageData?.group?.id || messageData?.group || messageData?.groupId;
+            if (!groupId) {
+                return;
+            }
+            const senderId = messageData?.sender?._id || messageData?.sender?.id || messageData?.sender || "";
+            const currentUser = JSON.parse(localStorage.getItem("user"));
+            const currentUserId = currentUser?._id || currentUser?.id || currentUser?.userId || "";
+            const isSent = senderId && currentUserId && senderId.toString() === currentUserId.toString();
+
+            setConversations((prev) => {
+
+                const updated = prev.map(
+                    (conversation) => {
+                        if ( conversation.id?.toString() !== groupId.toString()) {
+                            return conversation;
+                        }
+                        const isCurrentGroup = selectedChat?.id?.toString() === groupId.toString();
+                        return {
+                            ...conversation,
+                            message: messageData,
+                            messageType: messageData?.messageType || "text",
+                            fileUrl: messageData?.fileUrl || "",
+                            fileName: messageData?.fileName || "",
+                            sender: messageData?.sender || "",
+                            isSent,
+                            isRead:isSent ? false : conversation.isRead,
+                            time: messageData?.createdAt
+                                    ? new Date(
+                                        messageData.createdAt
+                                    ).toLocaleTimeString(
+                                        [],
+                                        {
+                                            hour: "2-digit",
+                                            minute: "2-digit",
+                                        }
+                                    )
+                                    : conversation.time,
+
+                            unread: isSent || isCurrentGroup ? 0 : (conversation.unread || 0) + 1,
+                        };
+                    }
+                );
+
+
+                const updatedConversation =
+                    updated.find(
+                        (conversation) =>  conversation.id?.toString() ===  groupId.toString()
+                    );
+
+
+                if (!updatedConversation) {
+                    return prev;
+                }
+
+
+                const otherConversations =
+                    updated.filter(
+                        (conversation) => conversation.id?.toString() !== groupId.toString()
+                    );
+
+
+                return [
+                    updatedConversation,
+                    ...otherConversations,
+                ];
+            });
+        };
+        
         if (!socket.connected) {
             socket.connect();
         }
 
-
         if (socket.connected) {
             joinUser();
         }
-        socket.on("connect", joinUser);
-        socket.on("receive_message", handleReceiveMessage);
+        socket.on(
+            "connect",
+            joinUser
+        );
+
+        socket.on(
+            "receive_message",
+            handleReceiveMessage
+        );
+
+        socket.on(
+            "group_message_received",
+            handleGroupMessage
+        );
+
 
         return () => {
-            socket.off("connect", joinUser);
 
-            socket.off("receive_message", handleReceiveMessage);
+            socket.off(
+                "connect",
+                joinUser
+            );
+
+            socket.off(
+                "receive_message",
+                handleReceiveMessage
+            );
+
+            socket.off(
+                "group_message_received",
+                handleGroupMessage
+            );
 
         };
 
-    }, [selectedChat]);
+    }, [selectedChat, type]);
 
 
     const filteredConversations = conversations.filter(
