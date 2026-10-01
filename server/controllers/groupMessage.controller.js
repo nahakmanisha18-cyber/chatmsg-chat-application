@@ -306,11 +306,8 @@ const markGroupMessagesAsRead = async (req, res) => {
         }
 
         const isMember = group.members.some(
-            (memberId) =>
-                memberId.toString() ===
-                userId.toString()
+            (memberId) =>  memberId.toString() === userId.toString()
         );
-
 
         if (!isMember) {
             return res.status(403).json({
@@ -318,16 +315,17 @@ const markGroupMessagesAsRead = async (req, res) => {
                 message: "You are not a member of this group",
             });
         }
+        const unreadMessages = await GroupMessage.find({
+            group: groupId,
+            sender: { $ne: userId },
+            readBy: { $ne: userId },
+        }).select("_id sender");
 
         await GroupMessage.updateMany(
             {
                 group: groupId,
-                sender: {
-                    $ne: userId,
-                },
-                readBy: {
-                    $ne: userId,
-                },
+                sender: { $ne: userId },
+                readBy: { $ne: userId },
             },
             {
                 $addToSet: {
@@ -335,6 +333,25 @@ const markGroupMessagesAsRead = async (req, res) => {
                 },
             }
         );
+        try {
+            const io = getIO();
+            unreadMessages.forEach((message) => {
+                io.to(message.sender.toString()).emit(
+                    "group_message_read",
+                    {
+                        groupId: groupId.toString(),
+                        messageId: message._id.toString(),
+                        readBy: userId.toString(),
+                    }
+                );
+            });
+
+        } catch (socketError) {
+            console.log(
+                "GROUP READ SOCKET ERROR:",
+                socketError.message
+            );
+        }
 
         return res.status(200).json({
             success: true,
@@ -342,7 +359,11 @@ const markGroupMessagesAsRead = async (req, res) => {
         });
 
     } catch (error) {
-        console.error("MARK GROUP MESSAGES READ ERROR:", error);
+        console.error(
+            "MARK GROUP MESSAGES READ ERROR:",
+            error
+        );
+
         return res.status(500).json({
             success: false,
             message: "Failed to mark group messages as read",

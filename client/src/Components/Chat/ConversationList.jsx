@@ -17,6 +17,8 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     const [conversations, setConversations] = useState([]);
+    const [suggestedUsers, setSuggestedUsers] = useState([]);
+
     const currentUser = JSON.parse(
         localStorage.getItem("user")
     );
@@ -29,20 +31,23 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
             try {
                 setLoading(true);
                 setError("");
-                const response = await api.get(
-                    type === "group" ? "/groups" : "/conversations"
-                );
 
-
-
-                const conversationList = type === "group" ? response.data?.groups || [] : response.data?.conversations || [];
                 if (type === "group") {
+                    const response = await api.get("/groups");
+                    const groups = response.data?.groups || [];
 
                     setConversations(
-                        conversationList.map((group) => {
+                        groups.map((group) => {
                             const lastMessage = group.lastMessage || null;
                             const lastMessageSenderId = lastMessage?.sender?._id || lastMessage?.sender?.id || lastMessage?.sender || "";
                             const isSent = lastMessageSenderId && currentUserId && lastMessageSenderId.toString() === currentUserId.toString();
+                            const isRead = isSent ? Array.isArray(lastMessage?.readBy) && lastMessage.readBy.some((user) => {
+                                const readUserId = user?._id || user?.id || user;
+                                return (
+                                    readUserId?.toString() !== currentUserId?.toString()
+                                );
+                            })
+                                : false;
 
                             return {
                                 id: group._id,
@@ -55,7 +60,7 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
                                 fileName: lastMessage?.fileName || "",
                                 sender: lastMessage?.sender || "",
                                 isSent,
-                                isRead: false,
+                                isRead,
                                 time: lastMessage?.createdAt
                                     ? new Date(
                                         lastMessage.createdAt
@@ -68,66 +73,78 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
                                 members: group.members || [],
                                 isGroup: true,
                             };
-
                         })
                     );
 
                     return;
                 }
+                const [conversationResponse, usersResponse] =
+                    await Promise.all([
+                        api.get("/conversations"),
+                        api.get("/users"),
+                    ]);
 
-                setConversations(
-                    conversationList.map((item) => {
-                        const lastMessage = item.lastMessage || null;
-                        const lastMessageSenderId = lastMessage?.sender?._id || lastMessage?.sender?.id || lastMessage?.sender || "";
+                const conversationList = conversationResponse.data?.conversations || [];
+                const allUsers = usersResponse.data?.users || [];
+                const formattedConversations = conversationList.map((item) => {
+                    const lastMessage = item.lastMessage || null;
+                    const lastMessageSenderId = lastMessage?.sender?._id || lastMessage?.sender?.id || lastMessage?.sender || "";
 
-                        return {
-                            id: item.user._id,
-                            name: item.user.fullName,
-                            profileImage: item.user.profileImage || "",
-                            online: item.user.isOnline || false,
-                            message: lastMessage,
-                            messageType: lastMessage?.messageType || "text",
-                            fileUrl: lastMessage?.fileUrl || "",
-                            fileName: lastMessage?.fileName || "",
-                            sender: lastMessage?.sender || "",
-                            isSent: lastMessageSenderId && currentUserId && lastMessageSenderId.toString() === currentUserId.toString(),
-                            isRead: lastMessage?.isRead || false,
-                            time: lastMessage?.createdAt
-                                ? new Date(
-                                    lastMessage.createdAt
-                                ).toLocaleTimeString([], {
-                                    hour: "2-digit",
-                                    minute: "2-digit",
-                                })
-                                : "",
+                    return {
+                        id: item.user._id,
+                        name: item.user.fullName,
+                        profileImage: item.user.profileImage || "",
+                        online: item.user.isOnline || false,
+                        message: lastMessage,
+                        messageType: lastMessage?.messageType || "text",
+                        fileUrl: lastMessage?.fileUrl || "",
+                        fileName: lastMessage?.fileName || "",
+                        sender: lastMessage?.sender || "",
+                        isSent: lastMessageSenderId && currentUserId && lastMessageSenderId.toString() === currentUserId.toString(),
+                        isRead: lastMessage?.isRead || false,
+                        time: lastMessage?.createdAt
+                            ? new Date(
+                                lastMessage.createdAt
+                            ).toLocaleTimeString([], {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                            })
+                            : "",
+                        unread: item.unreadCount || 0,
+                    };
+                });
 
-                            unread: item.unreadCount || 0,
-                        };
+                setConversations(formattedConversations);
+                const conversationUserIds =
+                    new Set(
+                        formattedConversations.map((conversation) =>
+                            conversation.id.toString()
+                        )
+                    );
 
-                    })
+                const suggestions = allUsers.filter(
+                    (user) => !conversationUserIds.has(user._id.toString())
                 );
 
-            } catch (error) {
+                setSuggestedUsers(suggestions);
 
+            } catch (error) {
                 console.log("GET CONVERSATIONS ERROR:", error);
                 setError(error.response?.data?.message || "Failed to load conversations");
             } finally {
                 setLoading(false);
             }
-
         };
 
         fetchConversations();
 
-    }, []);
-
+    }, [type]);
 
     const updateConversationPreview = (messageData) => {
         const senderId = messageData.sender?._id || messageData.sender?.id || messageData.sender;
         const receiverId = messageData.receiver?._id || messageData.receiver?.id || messageData.receiver;
         const currentUser = JSON.parse(localStorage.getItem("user"));
         const currentUserId = currentUser?._id || currentUser?.id || currentUser?.userId;
-
         if (!senderId || !receiverId || !currentUserId) {
             return;
         }
@@ -139,16 +156,19 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
         const otherUserId = sender === current ? receiver : sender;
 
         setConversations((prev) => {
-            const updatedConversations = prev.map((conversation) => {
 
-                if (conversation.id?.toString() !== otherUserId) {
-                    return conversation;
-                }
+            const existingConversation = prev.find(
+                (conversation) => conversation.id?.toString() === otherUserId
+            );
 
-                const isCurrentChat = selectedChat?.id?.toString() === otherUserId;
+            if (existingConversation) {
 
-                return {
-                    ...conversation,
+                const isCurrentChat =
+                    selectedChat?.id?.toString() ===
+                    otherUserId;
+
+                const updatedConversation = {
+                    ...existingConversation,
                     message: messageData,
                     messageType: messageData.messageType || "text",
                     fileUrl: messageData.fileUrl || "",
@@ -165,34 +185,70 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
                         })
                         : "",
 
-                    unread: receiver === current
-                        ? (
-                            isCurrentChat
-                                ? 0
-                                : (conversation.unread || 0) + 1
-                        )
-                        : conversation.unread,
+                    unread:
+                        receiver === current
+                            ? (
+                                isCurrentChat
+                                    ? 0
+                                    : (existingConversation.unread || 0) + 1
+                            )
+                            : existingConversation.unread,
                 };
-            });
-
-            const updatedConversation = updatedConversations.find(
-                (conversation) =>
-                    conversation.id?.toString() ===
-                    otherUserId
-            );
-
-            const otherConversations = updatedConversations.filter(
-                (conversation) =>
-                    conversation.id?.toString() !==
-                    otherUserId
-            );
-
-            if (!updatedConversation) {
-                return prev;
+                return [
+                    updatedConversation,
+                    ...prev.filter(
+                        (conversation) =>
+                            conversation.id?.toString() !==
+                            otherUserId
+                    ),
+                ];
             }
 
-            return [updatedConversation, ...otherConversations];
+            const newUser =
+                suggestedUsers.find(
+                    (user) => user._id?.toString() === otherUserId
+                );
+
+            const otherUser = newUser || (messageData.sender && sender !== current ? messageData.sender : messageData.receiver);
+
+            const newConversation = {
+                id: otherUserId,
+
+                name: otherUser?.fullName || otherUser?.name || "User",
+                profileImage: otherUser?.profileImage || "",
+                online: otherUser?.isOnline || false,
+                message: messageData,
+                messageType: messageData.messageType || "text",
+                fileUrl: messageData.fileUrl || "",
+                fileName: messageData.fileName || "",
+                sender: messageData.sender || "",
+                isSent: sender === current,
+                isRead: messageData.isRead || false,
+                time: messageData.createdAt
+                    ? new Date(
+                        messageData.createdAt
+                    ).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                    })
+                    : "",
+
+                unread: 0,
+            };
+
+            return [
+                newConversation,
+                ...prev,
+            ];
         });
+
+        setSuggestedUsers((prev) =>
+            prev.filter(
+                (user) =>
+                    user._id?.toString() !==
+                    otherUserId
+            )
+        );
     };
 
     useEffect(() => {
@@ -225,6 +281,7 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
             }
         };
 
+
         const handleGroupMessage = (messageData) => {
 
             console.log("GROUP MESSAGE:", messageData);
@@ -245,7 +302,7 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
 
                 const updated = prev.map(
                     (conversation) => {
-                        if ( conversation.id?.toString() !== groupId.toString()) {
+                        if (conversation.id?.toString() !== groupId.toString()) {
                             return conversation;
                         }
                         const isCurrentGroup = selectedChat?.id?.toString() === groupId.toString();
@@ -257,18 +314,18 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
                             fileName: messageData?.fileName || "",
                             sender: messageData?.sender || "",
                             isSent,
-                            isRead:isSent ? false : conversation.isRead,
+                            isRead: isSent ? false : conversation.isRead,
                             time: messageData?.createdAt
-                                    ? new Date(
-                                        messageData.createdAt
-                                    ).toLocaleTimeString(
-                                        [],
-                                        {
-                                            hour: "2-digit",
-                                            minute: "2-digit",
-                                        }
-                                    )
-                                    : conversation.time,
+                                ? new Date(
+                                    messageData.createdAt
+                                ).toLocaleTimeString(
+                                    [],
+                                    {
+                                        hour: "2-digit",
+                                        minute: "2-digit",
+                                    }
+                                )
+                                : conversation.time,
 
                             unread: isSent || isCurrentGroup ? 0 : (conversation.unread || 0) + 1,
                         };
@@ -278,7 +335,7 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
 
                 const updatedConversation =
                     updated.find(
-                        (conversation) =>  conversation.id?.toString() ===  groupId.toString()
+                        (conversation) => conversation.id?.toString() === groupId.toString()
                     );
 
 
@@ -299,7 +356,46 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
                 ];
             });
         };
-        
+
+        const handleGroupMessageRead = (data) => {
+            console.log("GROUP MESSAGE READ:", data);
+
+            const groupId =
+                data?.groupId ||
+                data?.group?._id ||
+                data?.group?.id;
+
+            const messageId = data?.messageId;
+
+            if (!groupId) return;
+
+            setConversations((prev) =>
+                prev.map((conversation) => {
+
+                    if (
+                        conversation.id?.toString() !==
+                        groupId.toString()
+                    ) {
+                        return conversation;
+                    }
+
+                    if (
+                        messageId &&
+                        conversation.message?._id &&
+                        conversation.message._id.toString() !==
+                        messageId.toString()
+                    ) {
+                        return conversation;
+                    }
+
+                    return {
+                        ...conversation,
+                        isRead: true,
+                    };
+                })
+            );
+        };
+
         if (!socket.connected) {
             socket.connect();
         }
@@ -322,6 +418,11 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
             handleGroupMessage
         );
 
+        socket.on(
+            "group_message_read",
+            handleGroupMessageRead
+        );
+
 
         return () => {
 
@@ -338,6 +439,11 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
             socket.off(
                 "group_message_received",
                 handleGroupMessage
+            );
+
+            socket.off(
+                "group_message_read",
+                handleGroupMessageRead
             );
 
         };
@@ -409,10 +515,7 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
                                 </span>
                             </button>
 
-                            <button
-                                type="button"
-                                onClick={handleSelectChats}
-                            >
+                            <button type="button" onClick={handleSelectChats}>
                                 <FaCheckSquare />
                                 <span>
                                     Select Chats
@@ -420,21 +523,14 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
                             </button>
 
                             <div className="dropdown-divider"></div>
-                            <button
-                                type="button"
-                                onClick={handleSettings}
-                            >
+                            <button type="button" onClick={handleSettings} >
                                 <FaCog />
                                 <span>
                                     Settings
                                 </span>
                             </button>
 
-                            <button
-                                type="button"
-                                className="logout-option"
-                                onClick={handleLogout}
-                            >
+                            <button type="button" className="logout-option" onClick={handleLogout}>
                                 <FaSignOutAlt />
                                 <span>
                                     Logout
@@ -480,41 +576,94 @@ const ConversationList = ({ selectedChat, setSelectedChat, type = "private" }) =
                         <p>{error}</p>
                     </div>
 
-                ) : filteredConversations.length > 0 ? (
-                    filteredConversations.map((conversation) => (
-                        <ConversationItem
-                            key={conversation.id}
-                            isGroup={type === "group"}
-                            conversation={conversation}
-                            selectedChat={selectedChat}
-                            onSelectChat={async (chat) => {
-                                setConversations((prev) =>
-                                    prev.map((item) =>
-                                        item.id === chat.id
-                                            ? {
-                                                ...item,
-                                                unread: 0,
-                                            }
-                                            : item
-                                    )
-                                );
-                                setSelectedChat(chat);
-                                try {
-                                    await api.put(`/messages/read/${chat.id}`);
-                                    console.log("MESSAGES MARKED AS READ");
-                                } catch (error) {
-                                    console.log("MARK READ ERROR:", error.response?.data || error.message);
-                                }
-
-                            }}
-                        />
-                    ))
-
                 ) : (
-                    <div className="no-conversation">
-                        <FaSearch />
-                        <p>No users found</p>
-                    </div>
+                    <>
+                        {filteredConversations.length > 0 && (
+                            <>
+                                {filteredConversations.map(
+                                    (conversation) => (
+                                        <ConversationItem key={conversation.id} isGroup={type === "group"} conversation={conversation} selectedChat={selectedChat}
+                                            onSelectChat={async (chat) => {
+                                                setConversations((prev) =>
+                                                    prev.map((item) => item.id === chat.id ? { ...item, unread: 0, } : item)
+                                                );
+                                                setSelectedChat(chat);
+                                                try {
+                                                    if (type === "group") {
+                                                        await api.put(`/group-messages/read/${chat.id}`);
+                                                    } else {
+                                                        await api.put(`/messages/read/${chat.id}`);
+                                                    }
+                                                } catch (error) {
+                                                    console.log("MARK READ ERROR:", error.response?.data || error.message);
+                                                }
+                                            }}
+                                        />
+                                    )
+                                )}
+                            </>
+                        )}
+
+                        {type !== "group" &&
+                            suggestedUsers.length > 0 && (
+                                <div className="suggested-users-section">
+                                    <div className="suggested-users-title">
+                                        <span>Start a new chat</span>
+                                    </div>
+
+                                    {suggestedUsers
+                                        .filter((user) => user.fullName?.toLowerCase().includes(search.toLowerCase()))
+                                        .map((user) => (
+                                            <div key={user._id} className="suggested-user-item"
+                                                onClick={() => {
+                                                    const newChat = {
+                                                        id: user._id,
+                                                        name: user.fullName,
+                                                        profileImage: user.profileImage || "",
+                                                        online: user.isOnline || false,
+                                                        message: null,
+                                                        messageType: "text",
+                                                        fileUrl: "",
+                                                        fileName: "",
+                                                        sender: "",
+                                                        isSent: false,
+                                                        isRead: false,
+                                                        time: "",
+                                                        unread: 0,
+                                                    };
+                                                    setSelectedChat(newChat);
+                                                }} >
+                                                <div className="suggested-user-image">
+                                                    {user.profileImage ? (
+                                                        <img src={user.profileImage} alt={user.fullName} />
+                                                    ) : (
+                                                        <div className="suggested-user-placeholder">
+                                                            {user.fullName?.charAt(0)?.toUpperCase()}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                <div className="suggested-user-info">
+                                                    <h4>
+                                                        {user.fullName}
+                                                    </h4>
+                                                    <p>
+                                                        Start a conversation
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                </div>
+                            )}
+
+                        {filteredConversations.length === 0 &&
+                            suggestedUsers.length === 0 && (
+                                <div className="no-conversation">
+                                    <FaSearch />
+                                    <p>No users found</p>
+                                </div>
+                            )}
+                    </>
                 )}
 
             </div>

@@ -218,6 +218,10 @@ const GroupChatMessages = ({ selectedChat, messages, setMessages }) => {
                     const sender = senderId?.toString();
                     const current = currentUserId?.toString();
                     const isSent = sender === current;
+                    const isRead = Array.isArray(message?.readBy)  ? message.readBy.some((user) => { const readUserId = user?._id || user?.id || user;
+                            return readUserId?.toString() !== sender?.toString();
+                        })
+                        : false;
                     const senderName = message?.sender?.fullName || message?.sender?.name || message?.sender?.username || "Unknown";
                     const senderAvatar = message?.sender?.profileImage || message?.sender?.avatar || "";
                     const messageTime = message?.createdAt
@@ -228,7 +232,7 @@ const GroupChatMessages = ({ selectedChat, messages, setMessages }) => {
                             { hour: "2-digit", minute: "2-digit" }
                         ) : "";
                     return (
-                        <GroupMessageBubble key={message._id} message={message} messageId={message._id} time={messageTime} type={isSent ? "sent" : "received"} onEdit={handleEditMessage} onDelete={handleDeleteMessage} senderName={senderName} senderAvatar={senderAvatar} />
+                        <GroupMessageBubble key={message._id} message={message} messageId={message._id} time={messageTime} type={isSent ? "sent" : "received"} isRead={isRead}  onEdit={handleEditMessage} onDelete={handleDeleteMessage} senderName={senderName} senderAvatar={senderAvatar} />
                     );
 
                 }
