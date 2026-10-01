@@ -164,9 +164,6 @@
 
 }
 
-/* =========================================================
-single-EMOJI MESSAGE
-========================================================= */
 
 .message-bubble.single-emoji-bubble {
 
@@ -184,9 +181,6 @@ single-EMOJI MESSAGE
 }
 
 
-/* =========================================================
-   BIG EMOJI
-========================================================= */
 
 .message-bubble .single-emoji-message {
 
@@ -218,10 +212,6 @@ single-EMOJI MESSAGE
 }
 
 
-/* =========================================================
-   EMOJI MESSAGE META
-   TIME + DOUBLE TICK
-========================================================= */
 
 .message-bubble.single-emoji-bubble .message-meta {
 
@@ -253,9 +243,6 @@ single-EMOJI MESSAGE
 }
 
 
-/* =========================================================
-   SENT EMOJI META
-========================================================= */
 
 .message-row.sent .message-bubble.single-emoji-bubble .message-meta {
 
@@ -264,9 +251,6 @@ single-EMOJI MESSAGE
 }
 
 
-/* =========================================================
-   READ TICK
-========================================================= */
 
 .message-bubble.single-emoji-bubble .message-read-icon {
 
@@ -283,9 +267,6 @@ single-EMOJI MESSAGE
 }
 
 
-/* =========================================================
-   DARK MODE
-========================================================= */
 
 body.dark-theme .message-bubble.single-emoji-bubble .message-meta {
 
@@ -307,11 +288,6 @@ body.dark-theme .message-bubble.single-emoji-bubble .message-read-icon.read {
 }
 
 
-/* =========================================================
-   MESSAGE MENU
-   Keep it available for sent emoji messages
-========================================================= */
-
 .message-bubble.single-emoji-bubble .message-menu-wrapper {
 
     position: absolute;
@@ -324,9 +300,6 @@ body.dark-theme .message-bubble.single-emoji-bubble .message-read-icon.read {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width: 600px) {
 
@@ -338,9 +311,6 @@ body.dark-theme .message-bubble.single-emoji-bubble .message-read-icon.read {
 
 }
 
-/* =========================================================
-   16. MESSAGE BUBBLE
-========================================================= */
 .message-bubble {
     position: relative;
 }
@@ -451,9 +421,6 @@ body.dark-theme .message-row.sent .message-bubble {
 }
 
 
-/* =========================================================
-   EMPTY CHAT - WELCOME SCREEN
-========================================================= */
 
 .empty-chat {
     position: relative;
@@ -476,9 +443,6 @@ body.dark-theme .message-row.sent .message-bubble {
 }
 
 
-/* =========================================================
-   MAIN ICON
-========================================================= */
 
 .empty-chat-icon {
     position: relative;
@@ -510,9 +474,6 @@ body.dark-theme .message-row.sent .message-bubble {
 }
 
 
-/* =========================================================
-   CONTENT
-========================================================= */
 
 .empty-chat-content {
     position: relative;
@@ -548,9 +509,6 @@ body.dark-theme .message-row.sent .message-bubble {
 }
 
 
-/* =========================================================
-   FEATURES
-========================================================= */
 
 .empty-chat-features {
     position: relative;
@@ -649,9 +607,6 @@ body.dark-theme .message-row.sent .message-bubble {
 }
 
 
-/* =========================================================
-   BOTTOM HINT
-========================================================= */
 
 .empty-chat-hint {
     position: relative;
@@ -679,14 +634,8 @@ body.dark-theme .message-row.sent .message-bubble {
     background: #029b85;
 }
 
-/* =========================================================
-   EMOJI PICKER
-========================================================= */
 
 
-/* =========================================================
-   EMOJI BUTTON
-========================================================= */
 
 .emoji-picker-wrapper {
     position: relative;
@@ -722,9 +671,6 @@ body.dark-theme .message-row.sent .message-bubble {
 }
 
 
-/* =========================================================
-   EMOJI CARD
-========================================================= */
 
 .emoji-picker-container {
     position: absolute;
@@ -752,9 +698,6 @@ body.dark-theme .message-row.sent .message-bubble {
 }
 
 
-/* =========================================================
-   EMOJI PICKER ROOT - LIGHT
-========================================================= */
 
 .emoji-picker-container .EmojiPickerReact {
 
@@ -793,9 +736,6 @@ body.dark-theme .message-row.sent .message-bubble {
 }
 
 
-/* =========================================================
-   SEARCH BOX
-========================================================= */
 
 .emoji-picker-container .EmojiPickerReact .epr-search-container input {
 
@@ -818,9 +758,6 @@ body.dark-theme .message-row.sent .message-bubble {
 
 
 
-/* =========================================================
-   EMOJI HOVER
-========================================================= */
 
 .emoji-picker-container .EmojiPickerReact .epr-emoji:hover {
 
@@ -829,9 +766,6 @@ body.dark-theme .message-row.sent .message-bubble {
 
 }
 
-/* =========================================================
-   REMOVE EMOJI CATEGORY ACTIVE ::before
-========================================================= */
 
 .emoji-picker-container .EmojiPickerReact .epr-category-nav .epr-cat-btn::before {
     content: none !important;
@@ -841,9 +775,6 @@ body.dark-theme .message-row.sent .message-bubble {
     background: transparent !important;
 }
 
-/* =========================================================
-   LOADING
-========================================================= */
 
 .emoji-loading {
 
@@ -859,9 +790,6 @@ body.dark-theme .message-row.sent .message-bubble {
 }
 
 
-/* =========================================================
-   SPINNER
-========================================================= */
 
 .emoji-spinner {
 
@@ -889,9 +817,6 @@ body.dark-theme .message-row.sent .message-bubble {
 }
 
 
-/* =========================================================
-   POPUP ANIMATION
-========================================================= */
 
 @keyframes emojiPopup {
 
@@ -913,9 +838,6 @@ body.dark-theme .message-row.sent .message-bubble {
 }
 
 
-/* =========================================================
-   DARK MODE - ROOT
-========================================================= */
 
 body.dark-theme .emoji-picker-container .EmojiPickerReact.epr-dark-theme {
 
@@ -939,9 +861,6 @@ body.dark-theme .emoji-picker-container .EmojiPickerReact.epr-dark-theme {
 }
 
 
-/* =========================================================
-   DARK SEARCH
-========================================================= */
 
 body.dark-theme .emoji-picker-container .EmojiPickerReact .epr-search-container input {
 
@@ -961,9 +880,6 @@ body.dark-theme .emoji-picker-container .EmojiPickerReact .epr-search-container 
 
 
 
-/* =========================================================
-   DARK EMOJI HOVER
-========================================================= */
 
 body.dark-theme .emoji-picker-container .EmojiPickerReact .epr-emoji:hover {
 
@@ -973,9 +889,6 @@ body.dark-theme .emoji-picker-container .EmojiPickerReact .epr-emoji:hover {
 }
 
 
-/* =========================================================
-   DARK CARD
-========================================================= */
 
 body.dark-theme .emoji-picker-container {
 
@@ -987,9 +900,6 @@ body.dark-theme .emoji-picker-container {
 }
 
 
-/* =========================================================
-   DARK LOADING
-========================================================= */
 
 body.dark-theme .emoji-loading {
 
@@ -1004,9 +914,6 @@ body.dark-theme .emoji-spinner {
 }
 
 
-/* =========================================================
-   DARK EMOJI BUTTON
-========================================================= */
 
 body.dark-theme .emoji-picker-wrapper .input-icon-btn {
 
@@ -1021,9 +928,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
 }
 
 
-/* =========================================================
-   DESKTOP LARGE
-========================================================= */
 
 @media (min-width: 1200px) {
 
@@ -1036,9 +940,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
 
 @media (max-width: 900px) {
 
@@ -1051,9 +952,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width: 600px) {
 
@@ -1075,9 +973,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
 
 @media (max-width: 380px) {
 
@@ -1089,9 +984,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
     }
 }
 
-/* =========================================================
-   RESPONSIVE - TABLET
-========================================================= */
 
 @media (max-width: 1000px) {
 
@@ -1114,9 +1006,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
 }
 
 
-/* =========================================================
-   RESPONSIVE - MOBILE
-========================================================= */
 
 @media (max-width: 768px) {
 
@@ -1174,9 +1063,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
 
 @media (max-width: 480px) {
 
@@ -1214,9 +1100,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
     }
 
 }
-/* =========================================================
-   ATTACHMENT DROPDOWN
-========================================================= */
 
 .attachment-picker-wrapper {
     position: relative;
@@ -1225,9 +1108,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
 }
 
 
-/* =========================================================
-   DROPDOWN CARD
-========================================================= */
 
 .attachment-dropdown {
     position: absolute;
@@ -1255,9 +1135,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
 }
 
 
-/* =========================================================
-   OPTION
-========================================================= */
 
 .attachment-option {
     width: 100%;
@@ -1290,9 +1167,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
 }
 
 
-/* =========================================================
-   ICON
-========================================================= */
 
 .attachment-icon {
     width: 42px;
@@ -1332,9 +1206,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
     color: #2196f3;
     background: rgba(33, 150, 243, 0.12);
 }
-/* =====================================================
-   SELECTED IMAGE PREVIEW
-===================================================== */
 
 .selected-image-preview {
     width: 100%;
@@ -1368,9 +1239,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
 }
 
 
-/* =====================================================
-   SINGLE IMAGE ITEM
-===================================================== */
 
 .selected-image-item {
     position: relative;
@@ -1391,9 +1259,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
 }
 
 
-/* =====================================================
-   IMAGE
-===================================================== */
 
 .selected-image-item img {
     width: 100%;
@@ -1416,9 +1281,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
 }
 
 
-/* =====================================================
-   REMOVE BUTTON
-===================================================== */
 
 .selected-image-item button {
     position: absolute;
@@ -1468,9 +1330,6 @@ body.dark-theme .emoji-picker-wrapper .input-icon-btn:hover {
 }
 
 
-/* =====================================================
-   DARK THEME
-===================================================== */
 
 body.dark-theme .selected-image-preview {
     background: #202c33;
@@ -1487,9 +1346,6 @@ body.dark-theme .selected-image-preview::-webkit-scrollbar-thumb {
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
 
 @media (max-width: 600px) {
 
@@ -1522,9 +1378,6 @@ body.dark-theme .selected-image-preview::-webkit-scrollbar-thumb {
     }
 }
 
-/* =========================================================
-   TEXT
-========================================================= */
 
 .attachment-text {
     display: flex;
@@ -1551,9 +1404,6 @@ body.dark-theme .selected-image-preview::-webkit-scrollbar-thumb {
 }
 
 
-/* =========================================================
-   ANIMATION
-========================================================= */
 
 @keyframes attachmentPopup {
 
@@ -1570,9 +1420,6 @@ body.dark-theme .selected-image-preview::-webkit-scrollbar-thumb {
 }
 
 
-/* =========================================================
-   DARK MODE
-========================================================= */
 
 body.dark-theme .attachment-dropdown {
     background: #202c33;
@@ -1600,9 +1447,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width: 600px) {
 
@@ -1611,9 +1455,6 @@ body.dark-theme .attachment-text small {
     }
 
 }
-/* =========================================================
-   CHATMSG HEADER
-========================================================= */
 
 .chat-header-main {
     width: 100%;
@@ -1642,9 +1483,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   LOGO
-========================================================= */
 
 .chat-logo {
     display: flex;
@@ -1667,9 +1505,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   HEADER RIGHT
-========================================================= */
 
 .header-right {
     display: flex;
@@ -1680,9 +1515,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   HEADER ICON BUTTON
-========================================================= */
 
 .header-icon-btn {
     width: 45px;
@@ -1730,18 +1562,12 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   THEME BUTTON
-========================================================= */
 
 .theme-btn {
     font-size: 18px;
 }
 
 
-/* =========================================================
-   DIVIDER
-========================================================= */
 
 .header-divider {
     width: 1px;
@@ -1754,9 +1580,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   PROFILE
-========================================================= */
 
 .header-profile {
     display: flex;
@@ -1781,9 +1604,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   PROFILE ICON
-========================================================= */
 
 .profile-icon {
     width: 45px;
@@ -1827,9 +1647,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   PROFILE DETAILS
-========================================================= */
 
 .profile-details {
     display: flex;
@@ -1866,9 +1683,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   MORE BUTTON
-========================================================= */
 
 .header-more-btn {
     width: 35px;
@@ -1906,9 +1720,6 @@ body.dark-theme .attachment-text small {
 
 
 
-/* =========================================================
-   TABLET
-========================================================= */
 
 @media (max-width: 900px) {
 
@@ -1934,9 +1745,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width: 650px) {
 
@@ -1992,9 +1800,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
 
 @media (max-width: 420px) {
 
@@ -2033,9 +1838,6 @@ body.dark-theme .attachment-text small {
 
 }
 
-/* =========================================================
-   1. MAIN PAGE
-========================================================= */
 
 .messages-page {
     width: 100%;
@@ -2062,13 +1864,7 @@ body.dark-theme .attachment-text small {
     overflow: hidden;
 }
 
-/* =========================================================
-   3. SIDEBAR
-========================================================= */
 
-/* =========================================
-   SIDEBAR
-========================================= */
 
 .chat-sidebar {
     width: 82px;
@@ -2091,9 +1887,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================
-   SIDEBAR ITEM
-========================================= */
 
 .sidebar-item {
     width: 66px;
@@ -2161,9 +1954,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================
-   SETTINGS
-========================================= */
 
 .sidebar-settings {
     width: 100%;
@@ -2200,9 +1990,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================
-   THEME DROPDOWN
-========================================= */
 
 .theme-dropdown {
     position: absolute;
@@ -2299,9 +2086,6 @@ body.dark-theme .attachment-text small {
 /* Theme dropdown */
 
 
-/* =========================================================
-   CONVERSATION LIST
-========================================================= */
 
 .conversation-list {
     width: 100%;
@@ -2320,9 +2104,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   CONVERSATION HEADER
-========================================================= */
 
 .conversation-header {
     width: 100%;
@@ -2344,9 +2125,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   LOGO + COUNT
-========================================================= */
 
 .conversation-title {
     display: flex;
@@ -2388,9 +2166,6 @@ body.dark-theme .attachment-text small {
     display: block;
 }
 
-/* =========================================================
-   THREE DOT MENU
-========================================================= */
 
 .conversation-menu-wrapper {
     position: relative;
@@ -2451,9 +2226,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   DROPDOWN
-========================================================= */
 
 .conversation-dropdown {
     position: absolute;
@@ -2591,9 +2363,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   SEARCH BOX
-========================================================= */
 
 .conversation-search-box {
     position: relative;
@@ -2732,9 +2501,6 @@ body.dark-theme .attachment-text small {
 
 
 
-/* =========================================================
-   NO SEARCH RESULT
-========================================================= */
 
 .no-conversation {
     height: 180px;
@@ -2769,9 +2535,6 @@ body.dark-theme .attachment-text small {
 
 
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
 
 @media (max-width: 1000px) {
 
@@ -2852,13 +2615,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   6. CONVERSATION ITEMS
-========================================================= */
-/* =========================================================
-   6. CONVERSATION ITEMS
-========================================================= */
-
 .conversation-items {
     flex: 1;
 
@@ -2868,9 +2624,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   SCROLLBAR
-========================================================= */
 
 .conversation-items::-webkit-scrollbar,
 .chat-messages::-webkit-scrollbar,
@@ -2886,9 +2639,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   INDIVIDUAL CONVERSATION
-========================================================= */
 
 .conversation-item {
     width: 100%;
@@ -2922,9 +2672,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   AVATAR
-========================================================= */
 
 .conversation-avatar-wrapper {
     position: relative;
@@ -2964,9 +2711,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   ONLINE DOT
-========================================================= */
 
 .conversation-online {
     position: absolute;
@@ -2985,9 +2729,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   CONVERSATION CONTENT
-========================================================= */
 
 .conversation-content {
     min-width: 0;
@@ -2996,9 +2737,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   TOP ROW
-========================================================= */
 
 .conversation-top {
     display: flex;
@@ -3036,9 +2774,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   BOTTOM ROW
-========================================================= */
 
 .conversation-bottom {
     margin-top: 5px;
@@ -3053,9 +2788,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   MESSAGE PREVIEW
-========================================================= */
 
 .conversation-message-preview {
     min-width: 0;
@@ -3093,9 +2825,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   IMAGE / VIDEO / DOCUMENT ICON
-========================================================= */
 
 .conversation-preview-icon {
     flex-shrink: 0;
@@ -3106,9 +2835,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   SENT MESSAGE DOUBLE CHECK
-========================================================= */
 
 .conversation-read-icon {
     flex-shrink: 0;
@@ -3124,9 +2850,6 @@ body.dark-theme .attachment-text small {
 }
 
 
-/* =========================================================
-   UNREAD COUNT
-========================================================= */
 
 .unread-count {
     width: 21px;
@@ -3150,9 +2873,6 @@ body.dark-theme .attachment-text small {
 
     font-weight: 700;
 }
-/* =========================================================
-   MESSAGE PREVIEW
-========================================================= */
 
 .conversation-media-preview,
 .conversation-text-preview {
@@ -3268,13 +2988,7 @@ body.dark-theme .conversation-bottom p {
     color: #7f9098;
 }
 
-/* =========================================================
-   10. EMPTY CHAT
-========================================================= */
 
-/* =========================================================
-   11. CHAT WINDOW
-========================================================= */
 
 .chat-window {
     width: 100%;
@@ -3288,9 +3002,6 @@ body.dark-theme .conversation-bottom p {
     overflow: hidden;
 }
 
-/* =========================================
-   CHAT HEADER
-========================================= */
 
 .chat-header {
     width: 100%;
@@ -3310,9 +3021,6 @@ body.dark-theme .conversation-bottom p {
 }
 
 
-/* =========================================
-   USER INFO
-========================================= */
 
 .chat-user-info {
     display: flex;
@@ -3354,9 +3062,6 @@ body.dark-theme .conversation-bottom p {
 
 
 
-/* =========================================
-   CHAT ACTIONS
-========================================= */
 
 .chat-actions {
     display: flex;
@@ -3396,9 +3101,6 @@ body.dark-theme .conversation-bottom p {
 }
 
 
-/* =========================================
-   THREE DOT MENU
-========================================= */
 
 .chat-menu-wrapper {
     position: relative;
@@ -3498,12 +3200,6 @@ body.dark-theme .conversation-bottom p {
     }
 }
 
-/* =========================================================
-   14. CHAT MESSAGES AREA
-========================================================= */
-/* =========================================
-   CHAT SECURITY / ENCRYPTION INFO
-========================================= */
 
 .chat-security-info {
     width: min(90%, 620px);
@@ -3609,9 +3305,6 @@ body.dark-theme .conversation-bottom p {
 }
 
 
-/* =========================================================
-   15. MESSAGE ROW
-========================================================= */
 
 .message-row {
     width: 100%;
@@ -3630,13 +3323,7 @@ body.dark-theme .conversation-bottom p {
 }
 
 
-/* =========================================================
-   17. MESSAGE INPUT
-========================================================= */
 
-/* =========================================
-   MESSAGE INPUT
-========================================= */
 
 .message-input {
     width: 100%;
@@ -3655,9 +3342,6 @@ body.dark-theme .conversation-bottom p {
 }
 
 
-/* =========================================
-   INPUT ICON BUTTON
-========================================= */
 
 .input-icon-btn {
     width: 42px;
@@ -3696,9 +3380,6 @@ body.dark-theme .conversation-bottom p {
 }
 
 
-/* =========================================
-   INPUT FIELD
-========================================= */
 
 .message-input-field {
     flex: 1;
@@ -3756,9 +3437,6 @@ body.dark-theme .conversation-bottom p {
     color: #a7b3b6;
 }
 
-/* =========================================================
-   MESSAGE TEXT EDITOR
-========================================================= */
 
 .message-text-editor {
     width: 100%;
@@ -3802,9 +3480,6 @@ body.dark-theme .conversation-bottom p {
 }
 
 
-/* =========================================================
-   EMOJI INSIDE INPUT
-========================================================= */
 
 .message-text-editor img {
     width: 26px !important;
@@ -3822,9 +3497,6 @@ body.dark-theme .conversation-bottom p {
 }
 
 
-/* =========================================================
-   DARK MODE
-========================================================= */
 
 body.dark-theme .message-text-editor {
     color: #e9edef;
@@ -3835,9 +3507,6 @@ body.dark-theme .message-text-editor:empty::before {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width: 600px) {
 
@@ -3852,9 +3521,6 @@ body.dark-theme .message-text-editor:empty::before {
     }
 
 }
-/* =========================================
-   SEND BUTTON
-========================================= */
 
 .send-button {
     width: 46px;
@@ -3913,9 +3579,6 @@ body.dark-theme .message-text-editor:empty::before {
     transform: none;
 }
 
-/* =========================================
-   MESSAGE DROPDOWN
-========================================= */
 
 .message-menu-wrapper {
     position: absolute;
@@ -3953,9 +3616,6 @@ body.dark-theme .message-text-editor:empty::before {
 }
 
 
-/* =====================================================
-   IMAGE VIEWER - FULL SCREEN
-===================================================== */
 
 .image-viewer-overlay {
     position: fixed;
@@ -3980,9 +3640,6 @@ body.dark-theme .message-text-editor:empty::before {
 }
 
 
-/* =====================================================
-   TOP BAR
-===================================================== */
 
 .image-viewer-topbar {
     position: absolute;
@@ -4007,9 +3664,6 @@ body.dark-theme .message-text-editor:empty::before {
 }
 
 
-/* =====================================================
-   CLOSE BUTTON
-===================================================== */
 .image-viewer-close,
 .image-viewer-download {
     width: 42px;
@@ -4046,18 +3700,12 @@ body.dark-theme .message-text-editor:empty::before {
 }
 
 
-/* =====================================================
-   ACTIVE
-===================================================== */
 
 .image-viewer-close:active,
 .image-viewer-download:active {
     transform: scale(0.95);
 }
 
-/* =====================================================
-   RIGHT ACTIONS
-===================================================== */
 
 .image-viewer-actions {
     display: flex;
@@ -4068,9 +3716,6 @@ body.dark-theme .message-text-editor:empty::before {
 }
 
 
-/* =====================================================
-   IMAGE CONTENT
-===================================================== */
 
 .image-viewer-content {
     width: 100%;
@@ -4085,9 +3730,6 @@ body.dark-theme .message-text-editor:empty::before {
 }
 
 
-/* =====================================================
-   FULL SCREEN IMAGE
-===================================================== */
 
 .image-viewer-image {
     display: block;
@@ -4112,9 +3754,6 @@ body.dark-theme .message-text-editor:empty::before {
 }
 
 
-/* =====================================================
-   ANIMATION
-===================================================== */
 
 @keyframes imageViewerFadeIn {
 
@@ -4144,9 +3783,6 @@ body.dark-theme .message-text-editor:empty::before {
     }
 
 }
-/* =====================================================
-   IMAGE UPLOAD LOADER
-===================================================== */
 
 .image-message-content {
     position: relative;
@@ -4193,9 +3829,6 @@ body.dark-theme .message-text-editor:empty::before {
 }
 
 
-/* =====================================================
-   DARK THEME
-===================================================== */
 
 body.dark-theme .image-viewer-overlay {
     background: #0d151c;
@@ -4204,9 +3837,6 @@ body.dark-theme .image-viewer-close,
 body.dark-theme .image-viewer-download {
     color: #ffffff;
 }
-/* =====================================================
-   MOBILE
-===================================================== */
 
 @media (max-width: 768px) {
 
@@ -4242,9 +3872,6 @@ body.dark-theme .image-viewer-download {
 }
 
 
-/* =========================================
-   DROPDOWN
-========================================= */
 
 .message-dropdown {
     position: absolute;
@@ -4295,9 +3922,6 @@ body.dark-theme .image-viewer-download {
 }
 
 
-/* =========================================
-   POPUP OVERLAY
-========================================= */
 
 .message-popup-overlay {
     position: fixed;
@@ -4317,9 +3941,6 @@ body.dark-theme .image-viewer-download {
 }
 
 
-/* =========================================
-   POPUP
-========================================= */
 
 .message-popup {
     width: 100%;
@@ -4335,9 +3956,6 @@ body.dark-theme .image-viewer-download {
     overflow: hidden;
 }
 
-/* =====================================================
-   IMAGE MESSAGE
-===================================================== */
 
 .image-message-bubble {
     padding: 3px !important;
@@ -4380,9 +3998,6 @@ body.dark-theme .image-viewer-download {
 }
 
 
-/* =====================================================
-   IMAGE TIME + READ ICON
-===================================================== */
 
 .image-message-meta {
     position: absolute;
@@ -4437,9 +4052,6 @@ body.dark-theme .image-viewer-download {
 body.dark-theme .image-message-bubble {
     background: #00a884;
 }
-/* =====================================================
-   IMAGE TIME - WHITE
-===================================================== */
 
 .image-message-meta {
     position: absolute;
@@ -4478,9 +4090,6 @@ body.dark-theme .image-message-bubble {
 .image-message-meta .image-read-icon.read {
     color: #ffffff !important;
 }
-/* =========================================
-   POPUP HEADER
-========================================= */
 
 .message-popup-header {
     display: flex;
@@ -4527,9 +4136,6 @@ body.dark-theme .image-message-bubble {
 }
 
 
-/* =========================================
-   POPUP BODY
-========================================= */
 
 .message-popup-body {
     padding: 18px;
@@ -4565,9 +4171,6 @@ body.dark-theme .image-message-bubble {
 }
 
 
-/* =========================================
-   POPUP FOOTER
-========================================= */
 
 .message-popup-footer {
     display: flex;
@@ -4622,9 +4225,6 @@ body.dark-theme .image-message-bubble {
 }
 
 
-/* =========================================
-   DELETE POPUP
-========================================= */
 
 .delete-popup {
     max-width: 360px;
@@ -4715,9 +4315,6 @@ body.dark-theme .image-message-bubble {
     right: 0;
     z-index: 100;
 }
-/* =========================================
-   DARK THEME - MESSAGE DROPDOWN
-========================================= */
 
 body.dark-theme .message-dropdown {
     background: #202c33;
@@ -4737,9 +4334,6 @@ body.dark-theme .message-dropdown .delete-message-option {
 }
 
 
-/* =========================================
-   DARK THEME - MENU BUTTON
-========================================= */
 
 body.dark-theme .message-menu-button {
     color: #aebac1;
@@ -4750,18 +4344,12 @@ body.dark-theme .message-menu-button:hover {
 }
 
 
-/* =========================================
-   DARK THEME - POPUP OVERLAY
-========================================= */
 
 body.dark-theme .message-popup-overlay {
     background: rgba(0, 0, 0, 0.65);
 }
 
 
-/* =========================================
-   DARK THEME - EDIT POPUP
-========================================= */
 
 body.dark-theme .message-popup {
     background: #202c33;
@@ -4786,9 +4374,6 @@ body.dark-theme .message-popup-header button:hover {
 }
 
 
-/* =========================================
-   DARK THEME - TEXTAREA
-========================================= */
 
 body.dark-theme .message-popup-body textarea {
     background: #111b21;
@@ -4809,9 +4394,6 @@ body.dark-theme .message-popup-body textarea:focus {
 }
 
 
-/* =========================================
-   DARK THEME - POPUP FOOTER
-========================================= */
 
 body.dark-theme .message-popup-footer {
     border-top-color: #374045;
@@ -4836,9 +4418,6 @@ body.dark-theme .popup-save-btn:hover {
 }
 
 
-/* =========================================
-   DARK THEME - DELETE POPUP
-========================================= */
 
 body.dark-theme .delete-popup {
     background: #202c33;
@@ -4867,9 +4446,6 @@ body.dark-theme .popup-delete-btn:hover {
 }
 
 
-/* =========================================
-   DARK THEME - READ TICK
-========================================= */
 
 body.dark-theme .message-read-icon {
     color: #8696a0;
@@ -4879,9 +4455,6 @@ body.dark-theme .message-read-icon.read {
     color: #00b3ff;
 }
 
-/* =========================================
-   RESPONSIVE
-========================================= */
 
 @media (max-width: 768px) {
 
@@ -4942,9 +4515,6 @@ body.dark-theme .message-read-icon.read {
 
 
 
-/* =========================================================
-   23. RESPONSIVE - TABLET
-========================================================= */
 
 @media (max-width: 1000px) {
 
@@ -4988,9 +4558,6 @@ body.dark-theme .message-read-icon.read {
 }
 
 
-/* =========================================================
-   24. RESPONSIVE - MOBILE
-========================================================= */
 
 @media (max-width: 768px) {
 
@@ -5064,9 +4631,6 @@ body.dark-theme .message-read-icon.read {
 }
 
 
-/* =========================================================
-   25. SMALL MOBILE
-========================================================= */
 
 @media (max-width: 480px) {
 
@@ -5195,9 +4759,6 @@ body.dark-theme .message-read-icon.read {
 }
 
 
-/* =========================================================
-   26. EXTRA POLISH
-========================================================= */
 
 button,
 input {
@@ -5214,18 +4775,12 @@ button {
     background: rgba(7, 157, 145, 0.20);
 }
 
-/* =========================================================
-   CHAT MENU WRAPPER
-========================================================= */
 
 .chat-menu-wrapper {
     position: relative;
 }
 
 
-/* =========================================================
-   CHAT ACTION BUTTON
-========================================================= */
 
 .chat-action-btn {
     width: 40px;
@@ -5272,9 +4827,6 @@ button {
 }
 
 
-/* =========================================================
-   CHAT DROPDOWN
-========================================================= */
 
 .chat-dropdown {
     position: absolute;
@@ -5302,9 +4854,6 @@ button {
 }
 
 
-/* =========================================================
-   DROPDOWN BUTTON
-========================================================= */
 
 .chat-dropdown button {
     width: 100%;
@@ -5351,9 +4900,6 @@ button {
 }
 
 
-/* =========================================================
-   NORMAL HOVER
-========================================================= */
 
 .chat-dropdown button:hover {
     background: #eef8f6;
@@ -5367,9 +4913,6 @@ button {
 }
 
 
-/* =========================================================
-   DELETE CHAT
-========================================================= */
 
 .chat-dropdown .delete-chat-option {
     color: #40565b;
@@ -5388,9 +4931,6 @@ button {
 }
 
 
-/* =========================================================
-   CLOSE CHAT
-========================================================= */
 
 .chat-dropdown .close-chat-option {
     color: #40565b;
@@ -5409,9 +4949,6 @@ button {
 }
 
 
-/* =========================================================
-   DROPDOWN ANIMATION
-========================================================= */
 
 @keyframes chatDropdownShow {
 
@@ -5432,9 +4969,6 @@ button {
 }
 
 
-/* =========================================================
-   DARK THEME
-========================================================= */
 
 body.dark-theme .chat-action-btn {
     background: transparent;
@@ -5457,9 +4991,6 @@ body.dark-theme .chat-action-btn.active {
 }
 
 
-/* =========================================================
-   DARK DROPDOWN
-========================================================= */
 
 body.dark-theme .chat-dropdown {
     background: #18232c;
@@ -5528,9 +5059,6 @@ body.dark-theme .chat-dropdown .close-chat-option:hover svg {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width: 480px) {
 
@@ -5651,9 +5179,6 @@ body.dark-theme .empty-chat-hint span {
 
 
 
-/* =========================================================
-   DARK THEME
-========================================================= */
 
 body.dark-theme .chat-header-main {
     background: #111922;
@@ -5737,9 +5262,6 @@ body.dark-theme .header-more-btn:hover {
     color: #20bbaa;
 }
 
-/* =========================================
-   DARK THEME
-========================================= */
 
 .dark-theme .chat-sidebar {
     background: #18232c;
@@ -5787,9 +5309,6 @@ body.dark-theme .header-more-btn:hover {
     color: #38b9ae;
 }
 
-/* =========================================================
-   DARK THEME
-========================================================= */
 
 body.dark-theme .conversation-list {
     background: #0d151c;
@@ -5921,9 +5440,6 @@ body.dark-theme .clear-search-btn:hover {
 }
 
 
-/* =========================================
-   DARK THEME
-========================================= */
 
 .dark-theme .message-input {
     background: #18232c;
@@ -5975,9 +5491,6 @@ body.dark-theme .clear-search-btn:hover {
 }
 
 
-/* =========================================================
-   18. DARK THEME
-========================================================= */
 
 body.dark-theme .messages-page {
     background: #0c1218;
@@ -6052,9 +5565,6 @@ body.dark-theme .conversation-search::before {
 
 
 
-/* =========================================================
-   19. DARK CHAT WINDOW
-========================================================= */
 
 body.dark-theme .chat-window {
     background: #0d151c;
@@ -6090,15 +5600,9 @@ body.dark-theme .chat-actions button:hover {
 }
 
 
-/* =========================================================
-   20. DARK CHAT MESSAGES
-========================================================= */
 
 
 
-/* =========================================================
-   21. DARK MESSAGE INPUT
-========================================================= */
 
 body.dark-theme .message-input {
     background: #151f27;
