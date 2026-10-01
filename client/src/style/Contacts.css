@@ -1,0 +1,653 @@
+/* =========================================
+   CONTACT TITLE
+========================================= */
+
+.contacts-title h2 {
+    margin: 0;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    color: #172b4d;
+}
+
+.contacts-title span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 13px;
+
+    color: #84959e;
+}
+
+
+/* =========================================
+   CONTACT ITEM
+========================================= */
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-top: 3px;
+    gap: 14px;
+    border-radius: 15px;
+    padding: 14px 14px;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+}
+
+.contact-item:hover {
+    background: #f5fbfa;
+}
+
+.contact-item.active {
+    background: #e9f8f6;
+
+}
+
+.contact-item.active .contact-avata {
+    background: #09aa9b;
+    color: #ffffff;
+}
+/* =========================================
+   CONTACT AVATAR
+========================================= */
+
+.contact-avatar-wrapper {
+    position: relative;
+
+    flex-shrink: 0;
+}
+
+.contact-avatar {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e4f5f3;
+
+    color: #0aa89e;
+
+    font-size: 18px;
+}
+
+.contact-online {
+    position: absolute;
+
+    right: 1px;
+    bottom: 1px;
+
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    background: #18b89f;
+
+    border: 2px solid #fff;
+}
+
+
+/* =========================================
+   CONTACT INFORMATION
+========================================= */
+
+.contact-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.contact-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.contact-top strong {
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #172b4d;
+}
+
+.contact-top span {
+    flex-shrink: 0;
+
+    font-size: 11px;
+
+    color: #84959e;
+}
+
+.contact-bottom {
+    margin-top: 5px;
+}
+
+.contact-bottom p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #78909c;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================
+   CONTACT EMPTY
+========================================= */
+
+.contact-empty {
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background: #f8fbfb;
+}
+
+.contact-empty-icon {
+    width: 76px;
+    height: 76px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e6f7f5;
+
+    color: #0aa89e;
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+}
+
+.contact-empty h1 {
+    margin: 0 0 10px;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    color: #172b4d;
+}
+
+.contact-empty p {
+    margin: 0;
+
+    font-size: 15px;
+
+    color: #80919b;
+}
+
+/* =========================================
+   CONTACT INFO PANEL
+========================================= */
+
+.contact-info-panel {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #f8fbfb;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.contact-info-header {
+    height: 76px;
+
+    padding: 0 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #edf2f3;
+}
+
+.contact-info-header h2 {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #172b4d;
+}
+
+.contact-info-close {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #71858d;
+
+    font-size: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.contact-info-close:hover {
+    background: #eef7f6;
+
+    color: #0aa89e;
+}
+
+
+/* =========================================
+   CONTACT DETAILS CARD
+========================================= */
+
+.contact-details-card {
+    margin: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5ebec;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px rgba(20, 50, 60, 0.04);
+}
+
+
+/* =========================================
+   CONTACT TOP
+========================================= */
+
+.contact-details-top {
+    min-height: 110px;
+
+    padding: 0 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #edf1f2;
+}
+
+
+/* =========================================
+   PROFILE
+========================================= */
+
+.contact-profile {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.contact-profile-avatar {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #dff5f2;
+
+    color: #0aa89e;
+
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.contact-profile-name h3 {
+    margin: 0 0 4px;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    color: #172b4d;
+}
+
+.contact-profile-name span {
+    font-size: 11px;
+
+    color: #80939b;
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.contact-info-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.contact-info-actions button {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f2f8f7;
+
+    color: #536a72;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.contact-info-actions button:hover {
+    background: #e0f5f2;
+
+    color: #0aa89e;
+}
+
+
+/* =========================================
+   CALL HISTORY
+========================================= */
+
+.call-history {
+    padding: 24px 22px;
+}
+
+.call-history-date {
+    margin-bottom: 22px;
+
+    font-size: 14px;
+
+    color: #71858d;
+}
+
+.call-history-item {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.call-history-left {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    color: #172b4d;
+
+    font-size: 14px;
+}
+
+.call-history-left svg {
+    font-size: 18px;
+
+    color: #536a72;
+}
+
+.call-history-status {
+    font-size: 13px;
+
+    color: #71858d;
+
+    text-align: right;
+}
+/* =========================================
+   DARK THEME - CONTACTS
+========================================= */
+
+/* CONTACT TITLE */
+body.dark-theme .contacts-title h2 {
+    color: #edf4f5;
+}
+
+body.dark-theme .contacts-title span {
+    color: #81939a;
+}
+
+
+/* =========================================
+   CONTACT ITEM
+========================================= */
+
+body.dark-theme .contact-item {
+    border-bottom-color: #26343b;
+}
+
+body.dark-theme .contact-item:hover {
+    background: #162329;
+}
+
+body.dark-theme .contact-item.active {
+    background: #123c3d;
+    border-left-color: #20bbaa;
+}
+
+
+/* =========================================
+   CONTACT AVATAR
+========================================= */
+
+body.dark-theme .contact-avatar {
+    background: #193b3b;
+    color: #20bbaa;
+}
+
+
+
+/* Active Avatar */
+
+body.dark-theme .contact-item.active .contact-avatar {
+    background: #20bbaa;
+    color: #ffffff;
+}
+
+body.dark-theme .contact-online {
+    background: #20bbaa;
+    border-color: #101a21;
+}
+
+
+/* =========================================
+   CONTACT INFORMATION
+========================================= */
+
+body.dark-theme .contact-top strong {
+    color: #e1ebed;
+}
+
+body.dark-theme .contact-top span {
+    color: #7f929a;
+}
+
+body.dark-theme .contact-bottom p {
+    color: #81939a;
+}
+
+
+/* =========================================
+   CONTACT EMPTY
+========================================= */
+
+body.dark-theme .contact-empty {
+    background: #111922;
+}
+
+body.dark-theme .contact-empty-icon {
+    background: #193b3b;
+    color: #20bbaa;
+}
+
+body.dark-theme .contact-empty h1 {
+    color: #edf4f5;
+}
+
+body.dark-theme .contact-empty p {
+    color: #7f929b;
+}
+
+
+/* =========================================
+   CONTACT INFO PANEL
+========================================= */
+
+body.dark-theme .contact-info-panel {
+    background: #0d151c;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+body.dark-theme .contact-info-header {
+    background: #111c23;
+    border-bottom-color: #293740;
+}
+
+body.dark-theme .contact-info-header h2 {
+    color: #edf4f5;
+}
+
+body.dark-theme .contact-info-close {
+    color: #81939a;
+}
+
+body.dark-theme .contact-info-close:hover {
+    background: #193b3b;
+    color: #20bbaa;
+}
+
+
+/* =========================================
+   CONTACT DETAILS CARD
+========================================= */
+
+body.dark-theme .contact-details-card {
+    background: #111c23;
+    border-color: #293740;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================
+   CONTACT DETAILS TOP
+========================================= */
+
+body.dark-theme .contact-details-top {
+    border-bottom-color: #293740;
+}
+
+
+/* =========================================
+   PROFILE
+========================================= */
+
+body.dark-theme .contact-profile-avatar {
+    background: #193b3b;
+    color: #20bbaa;
+}
+
+body.dark-theme .contact-profile-name h3 {
+    color: #e6eff1;
+}
+
+body.dark-theme .contact-profile-name span {
+    color: #81939a;
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+body.dark-theme .contact-info-actions button {
+    background: #1a2a31;
+    color: #9aabb1;
+}
+
+body.dark-theme .contact-info-actions button:hover {
+    background: #193b3b;
+    color: #20bbaa;
+}
+
+
+/* =========================================
+   CALL HISTORY
+========================================= */
+
+body.dark-theme .call-history-date {
+    color: #81939a;
+}
+
+body.dark-theme .call-history-left {
+    color: #dce7e9;
+}
+
+body.dark-theme .call-history-left svg {
+    color: #91a3a9;
+}
+
+body.dark-theme .call-history-status {
+    color: #81939a;
+}

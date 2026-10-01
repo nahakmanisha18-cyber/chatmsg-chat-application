@@ -1,0 +1,2014 @@
+/* =========================================
+   GROUPS LIST PANEL
+========================================= */
+
+.groups-list-panel {
+
+    min-width: 360px;
+    height: 100%;
+    background: #ffffff;
+    border-right: 1px solid #e8eeee;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.conversation-group-header {
+    width: 100%;
+
+    min-height: 92px;
+
+    padding: 20px 18px 14px 20px;
+
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    /* background: #ffffff; */
+
+    position: relative;
+
+    z-index: 20;
+}
+
+/* =========================================
+   GROUP HEADER
+========================================= */
+
+.groups-list-header {
+    padding: 20px 20px 16px;
+    background: #ffffff;
+    border-bottom: 1px solid #edf1f1;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.groups-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.groups-title h2 {
+    margin: 0;
+    font-size: 31px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.2;
+}
+
+
+/* =========================================
+   ADD GROUP BUTTON
+========================================= */
+
+.groups-add-button {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #09aa9b;
+    color: #ffffff;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.groups-add-button svg {
+    font-size: 14px;
+}
+
+.groups-add-button:hover {
+    background: #07988b;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   GROUP SEARCH
+========================================= */
+
+.groups-search {
+    width: 100%;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 15px;
+
+    background: #f3f7f7;
+    border-radius: 14px;
+
+    box-sizing: border-box;
+}
+
+.groups-search svg {
+    flex-shrink: 0;
+    font-size: 16px;
+    color: #91a3a8;
+    margin-right: 12px;
+}
+
+.groups-search input {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-size: 14px;
+    color: #26383d;
+}
+
+.groups-search input::placeholder {
+    color: #91a3a8;
+}
+
+
+/* =========================================
+   GROUP ITEMS CONTAINER
+========================================= */
+
+.groups-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 0;
+}
+
+
+/* Scrollbar */
+
+.groups-items::-webkit-scrollbar {
+    width: 5px;
+}
+
+.groups-items::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.groups-items::-webkit-scrollbar-thumb {
+    background: #dce5e5;
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   GROUP ITEM
+========================================= */
+
+.group-item {
+    position: relative;
+
+    width: 100%;
+    
+    margin-top: 3px;
+    padding: 14px 14px;
+
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+    border-radius: 15px;
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Hover */
+
+.group-item:hover {
+    background: #f6faf9;
+}
+
+
+/* Active */
+
+.group-item.active {
+    background: #eaf8f6;
+}
+
+
+
+
+
+/* =========================================
+   GROUP AVATAR
+========================================= */
+
+.group-avatar {
+    width: 50px;
+    height: 50px;
+
+    min-width: 50px;
+
+    margin-right: 14px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e2f5f3;
+    color: #08a99a;
+
+    transition: 0.2s ease;
+}
+
+.group-avatar svg {
+    font-size: 19px;
+}
+
+
+/* Active avatar */
+
+.group-item.active .group-avatar {
+    background: #09aa9b;
+    color: #ffffff;
+}
+
+
+/* =========================================
+   GROUP INFORMATION
+========================================= */
+
+.group-info {
+    min-width: 0;
+    flex: 1;
+}
+
+
+/* =========================================
+   TOP ROW
+========================================= */
+
+.group-top {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 5px;
+}
+
+.group-top strong {
+    min-width: 0;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    color: #142326;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.group-top span {
+    flex-shrink: 0;
+
+    font-size: 11px;
+    color: #789096;
+}
+
+
+/* =========================================
+   BOTTOM ROW
+========================================= */
+
+.group-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.group-bottom p {
+    min-width: 0;
+
+    margin: 0;
+
+    font-size: 13px;
+    color: #7a8c91;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Members */
+
+
+
+/* =========================================
+   ACTIVE TEXT
+========================================= */
+
+
+
+.group-item.active .group-top span {
+    color: #71878c;
+}
+
+.group-item.active .group-bottom p {
+    color: #6e858a;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+/* =========================================
+   GROUP EMPTY PAGE
+========================================= */
+
+.group-empty {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: #f8fbfb;
+
+    text-align: center;
+}
+
+
+.group-empty-icon {
+    width: 76px;
+    height: 76px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e6f7f5;
+
+    color: #0aa89e;
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+}
+
+
+.group-empty h1 {
+    margin: 0 0 10px;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    color: #172b4d;
+}
+
+
+.group-empty p {
+    margin: 0;
+
+    font-size: 15px;
+
+    color: #80919b;
+}
+
+
+.create-group-page {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* HEADER */
+
+.create-group-header {
+    height: 78px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 24px;
+    border-bottom: 1px solid #e5eeee;
+}
+
+.create-group-back {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    color: #52676c;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-group-header h2 {
+    margin: 0;
+    color: #173139;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.create-group-header span {
+    display: block;
+    margin-top: 3px;
+    color: #8ca1a5;
+    font-size: 12px;
+}
+
+
+/* SEARCH */
+
+.create-group-search {
+    margin: 20px 24px;
+    height: 48px;
+    background: #f2f7f7;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+}
+
+.create-group-search svg {
+    color: #8ca1a5;
+}
+
+.create-group-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #173139;
+    font-size: 14px;
+}
+
+
+/* USERS */
+
+.create-group-users {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 14px;
+}
+
+.group-user-item {
+    min-height: 68px;
+    padding: 9px 12px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.group-user-item:hover {
+    background: #f4f9f8;
+}
+
+.group-user-item.selected {
+    background: #e8f7f5;
+}
+
+
+/* AVATAR */
+
+.group-user-avatar {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #e3f5f3;
+    color: #029b85;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.group-user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* USER INFO */
+
+.group-user-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.group-user-info h3 {
+    margin: 0;
+    color: #173139;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.group-user-info span {
+    display: block;
+    margin-top: 3px;
+    color: #8ca1a5;
+    font-size: 12px;
+}
+
+
+/* CHECK */
+
+.group-select-circle {
+    width: 23px;
+    height: 23px;
+    border: 2px solid #a8b8bb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.group-select-circle.checked {
+    border-color: #029b85;
+    background: #029b85;
+    font-size: 11px;
+}
+
+
+/* FOOTER */
+
+.create-group-footer {
+    min-height: 72px;
+    border-top: 1px solid #e5eeee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+.create-group-footer span {
+    color: #8ca1a5;
+    font-size: 13px;
+}
+
+.create-group-footer button {
+    border: none;
+    background: #029b85;
+    color: #ffffff;
+    border-radius: 24px;
+    padding: 11px 20px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.create-group-footer button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* GROUP DETAILS */
+
+.group-details {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+
+/* GROUP PHOTO */
+
+.group-image-upload {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    background: #e3f5f3;
+    color: #029b85;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.group-image-upload img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.group-image-upload input {
+    display: none;
+}
+
+
+/* GROUP NAME */
+
+.group-name-input {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-bottom: 1px solid #cbd7d8;
+    outline: none;
+    font-size: 16px;
+    color: #173139;
+    text-align: center;
+}
+
+
+/* MEMBERS */
+
+.selected-members {
+    margin-top: 35px;
+}
+
+.selected-members h3 {
+    margin-bottom: 15px;
+    color: #173139;
+    font-size: 14px;
+}
+
+.selected-member {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.selected-member .group-user-avatar {
+    width: 40px;
+    height: 40px;
+}
+
+.selected-member span {
+    color: #173139;
+    font-size: 14px;
+}
+
+
+/* CREATE */
+
+.create-group-button {
+    width: 100%;
+    margin-top: 30px;
+    height: 48px;
+    border: none;
+    border-radius: 24px;
+    background: #029b85;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* =========================================================
+   GROUP CHAT
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   GROUP CHAT WINDOW
+--------------------------------------------------------- */
+
+.group-chat-window {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+
+    background: #f8fbfb;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+/* =========================================================
+   GROUP CHAT - COMPLETE MESSAGE CSS
+   Single Chat jaisa bubble design
+========================================================= */
+
+
+/* =========================================================
+   1. MESSAGE AREA
+========================================================= */
+
+.group-chat-messages {
+    flex: 1;
+    min-height: 0;
+
+    padding: 24px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   2. MESSAGE ROW
+========================================================= */
+
+.group-message-row {
+    width: 100%;
+
+    display: flex;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+/* Received message - LEFT */
+
+.group-message-row.received {
+    justify-content: flex-start;
+}
+
+
+/* Sent message - RIGHT */
+
+.group-message-row.sent {
+    justify-content: flex-end;
+}
+
+
+/* =========================================================
+   3. MESSAGE WRAPPER
+========================================================= */
+
+.group-message-wrapper {
+    width: auto;
+
+    max-width: 65%;
+
+    display: flex;
+}
+
+
+/* =========================================================
+   4. MAIN MESSAGE BUBBLE
+========================================================= */
+
+.group-message-bubble {
+    position: relative;
+
+    min-width: 80px;
+
+    max-width: 420px;
+
+    padding: 10px 13px;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    word-break: break-word;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   5. RECEIVED BUBBLE
+========================================================= */
+
+.group-message-row.received .group-message-bubble {
+
+    background: #ffffff;
+
+    color: #263d43;
+
+    border-radius: 16px;
+
+    border-bottom-left-radius: 5px;
+
+    box-shadow:
+        0 3px 12px rgba(25, 70, 75, 0.08);
+}
+
+
+/* =========================================================
+   6. SENT BUBBLE
+========================================================= */
+
+.group-message-row.sent .group-message-bubble {
+
+    background: #029b85;
+
+    color: #ffffff;
+
+    border-radius: 16px;
+
+    border-top-right-radius: 5px;
+
+    box-shadow:
+        0 5px 18px rgba(7, 157, 145, 0.18);
+}
+
+
+/* =========================================================
+   7. SENDER HEADER
+   Only received group message
+========================================================= */
+
+.group-sender-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 0 0 4px 0;
+
+    padding: 0;
+}
+
+
+/* =========================================================
+   8. SENDER PROFILE
+========================================================= */
+
+.group-sender-avatar {
+
+    width: 25px;
+
+    height: 25px;
+
+    min-width: 25px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background: #e7f7f5;
+
+    color: #029b85;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+
+    flex-shrink: 0;
+}
+
+
+/* Profile image */
+
+
+/* =========================================================
+   9. SENDER NAME
+========================================================= */
+/* =========================================================
+   GROUP SENDER INFO
+   Received message ke bubble ke andar
+========================================================= */
+
+.group-sender-info {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-bottom: 4px;
+}
+
+
+/* =========================================================
+   GROUP SENDER PROFILE
+========================================================= */
+
+.group-sender-avatar {
+    width: 25px;
+    height: 25px;
+
+    min-width: 25px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e5f7f4;
+
+    color: #029b85;
+
+    font-size: 12px;
+}
+
+
+.group-sender-avatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================================================
+   GROUP SENDER NAME
+========================================================= */
+
+.group-sender-name {
+    margin: 0;
+    padding: 0;
+
+    color: #029b85;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1.2;
+}
+
+/* =========================================================
+   10. NORMAL MESSAGE TEXT
+========================================================= */
+
+.group-normal-message {
+
+    margin: 0;
+
+    padding: 0;
+
+    font-size: 17px;
+
+    font-weight: 400;
+
+    line-height: 1.45;
+
+    word-break: break-word;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* Sent text = WHITE */
+
+.group-message-row.sent .group-normal-message {
+
+    color: #ffffff;
+}
+
+
+/* Received text = DARK */
+
+.group-message-row.received .group-normal-message {
+
+    color: #263d43;
+}
+
+
+/* =========================================================
+   11. MESSAGE META
+   Time + double tick
+========================================================= */
+
+.group-message-meta {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 4px;
+
+    margin-top: 4px;
+
+    padding: 0;
+}
+
+
+/* =========================================================
+   12. MESSAGE TIME
+========================================================= */
+
+.group-message-meta span {
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    display: inline-block;
+}
+
+
+/* Sent time */
+
+.group-message-row.sent .group-message-meta span {
+
+    color: #224c44;
+}
+
+
+/* Received time */
+
+.group-message-row.received .group-message-meta span {
+
+    color: #224c44;
+}
+
+
+/* =========================================================
+   13. DOUBLE CHECK
+========================================================= */
+
+.group-message-read-icon {
+
+    font-size: 16px;
+
+    line-height: 1;
+
+    color: #224c44;
+
+    display: inline-block;
+}
+
+
+/* Read */
+
+.group-message-read-icon.read {
+
+    color: #00aef0;
+}
+
+
+/* =========================================================
+   14. SINGLE EMOJI MESSAGE
+   No bubble - screenshot jaisa
+========================================================= */
+
+.group-message-bubble.group-single-emoji-bubble {
+
+    min-width: auto;
+
+    max-width: none;
+
+    padding: 0;
+
+    background: transparent !important;
+
+    box-shadow: none !important;
+
+    border: none !important;
+
+    border-radius: 0 !important;
+}
+
+
+/* Single emoji wrapper */
+
+.group-single-emoji-message {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    justify-content: flex-end;
+
+    gap: 3px;
+
+    padding: 0;
+
+    margin: 0;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   15. SINGLE EMOJI TIME
+========================================================= */
+
+.group-single-emoji-message .group-message-meta {
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   16. MULTIPLE EMOJI MESSAGE
+   Teal bubble
+========================================================= */
+
+.group-message-bubble.group-multiple-emoji-bubble {
+
+    min-width: 80px;
+
+    max-width: 420px;
+
+    padding: 10px 13px;
+
+    background: #029b85 !important;
+
+    color: #ffffff;
+
+    border-radius: 16px;
+
+    border-top-right-radius: 5px;
+
+    box-shadow:
+        0 5px 18px rgba(7, 157, 145, 0.18);
+}
+
+
+/* Multiple emoji wrapper */
+
+.group-multiple-emoji-message {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 3px;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+/* Emoji row */
+
+.group-multiple-emoji-message>div:first-child {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    flex-wrap: wrap;
+
+    gap: 2px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   17. IMAGE MESSAGE
+========================================================= */
+
+.group-message-bubble.group-image-message-bubble {
+
+    padding: 4px;
+
+    min-width: auto;
+
+    max-width: 300px;
+}
+
+
+/* Image content */
+
+.group-image-message-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    width: 100%;
+}
+
+
+/* Image */
+
+.group-chat-image {
+
+    display: block;
+
+    width: auto;
+
+    max-width: 280px;
+
+    max-height: 350px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   18. IMAGE TIME
+========================================================= */
+
+.group-image-message-meta {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 4px;
+
+    padding: 3px 5px 2px;
+
+    min-height: 17px;
+}
+
+
+.group-image-message-meta span {
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    color: #224c44;
+}
+
+
+/* =========================================================
+   19. VIDEO MESSAGE
+========================================================= */
+
+.group-video-message-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+/* Video */
+
+.group-chat-video {
+
+    display: block;
+
+    width: 280px;
+
+    max-width: 100%;
+
+    height: auto;
+
+    border-radius: 9px;
+
+    background: #000;
+}
+
+
+/* =========================================================
+   20. DOCUMENT MESSAGE
+========================================================= */
+
+.group-document-message-content {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 8px 10px;
+
+    border-radius: 8px;
+
+    background: rgba(0, 0, 0, 0.04);
+
+    color: inherit;
+
+    text-decoration: none;
+
+    max-width: 280px;
+}
+
+
+.group-document-message-content:hover {
+
+    text-decoration: none;
+
+    background: rgba(0, 0, 0, 0.07);
+}
+
+
+/* Document icon */
+
+.group-document-message-content i {
+
+    font-size: 24px;
+
+    flex-shrink: 0;
+}
+
+
+/* Document name */
+
+.group-document-message-content span {
+
+    font-size: 14px;
+
+    line-height: 1.3;
+
+    word-break: break-word;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   21. SENT MESSAGE MENU
+========================================================= */
+
+.group-message-menu-wrapper {
+
+    position: absolute;
+
+    top: 5px;
+
+    right: 5px;
+
+    z-index: 20;
+}
+
+
+/* Menu button */
+
+.group-message-menu-button {
+
+    width: 25px;
+
+    height: 25px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* Show button on hover */
+
+.group-message-bubble:hover .group-message-menu-button {
+
+    opacity: 1;
+}
+
+
+/* Button hover */
+
+.group-message-menu-button:hover {
+
+    background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================================================
+   22. MESSAGE DROPDOWN
+========================================================= */
+
+.group-message-dropdown {
+
+    position: absolute;
+
+    top: 29px;
+
+    right: 0;
+
+    min-width: 125px;
+
+    padding: 5px;
+
+    background: #ffffff;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.15);
+
+    z-index: 100;
+}
+
+
+/* Dropdown button */
+
+.group-message-dropdown button {
+
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 8px 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border-radius: 6px;
+
+    color: #333333;
+
+    font-size: 13px;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+
+/* Dropdown hover */
+
+.group-message-dropdown button:hover {
+
+    background: #f0f2f5;
+}
+
+
+/* Delete */
+
+.group-message-dropdown .delete-message-option {
+
+    color: #d93025;
+}
+
+
+/* =========================================================
+   23. GROUP MESSAGE SCROLLBAR
+========================================================= */
+
+.group-chat-messages::-webkit-scrollbar {
+
+    width: 7px;
+}
+
+
+.group-chat-messages::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+
+.group-chat-messages::-webkit-scrollbar-thumb {
+
+    background: #b8c9ca;
+
+    border-radius: 10px;
+}
+
+
+.group-chat-messages::-webkit-scrollbar-thumb:hover {
+
+    background: #91aaac;
+}
+
+
+/* =========================================================
+   24. DARK MODE
+========================================================= */
+
+body.dark-theme .group-message-row.received .group-message-bubble {
+
+    background: #18252c;
+
+    color: #f4f7f8;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.18);
+}
+
+
+body.dark-theme .group-message-row.received .group-normal-message {
+
+    color: #f4f7f8;
+}
+
+
+body.dark-theme .group-message-row.sent .group-message-bubble {
+
+    background: #05796d;
+
+    color: #ffffff;
+}
+
+
+body.dark-theme .group-sender-name {
+
+    color: #43cfc5;
+}
+
+
+body.dark-theme .group-sender-avatar {
+
+    background: #203a3c;
+
+    color: #43cfc5;
+}
+
+
+body.dark-theme .group-document-message-content {
+
+    background: rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================================================
+   25. MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .group-chat-messages {
+
+        padding: 16px 12px;
+
+        gap: 8px;
+    }
+
+
+    .group-message-wrapper {
+
+        max-width: 80%;
+    }
+
+
+    .group-message-bubble {
+
+        min-width: 70px;
+
+        max-width: 100%;
+
+        padding: 9px 12px;
+
+        border-radius: 15px;
+    }
+
+
+    .group-normal-message {
+
+        font-size: 15px;
+
+        line-height: 1.45;
+    }
+
+
+    .group-message-meta {
+
+        margin-top: 3px;
+
+        gap: 3px;
+    }
+
+
+    .group-message-meta span {
+
+        font-size: 13px;
+    }
+
+
+    .group-message-read-icon {
+
+        font-size: 15px;
+    }
+
+
+    .group-sender-header {
+
+        gap: 6px;
+
+        margin-bottom: 3px;
+    }
+
+
+    .group-sender-avatar {
+
+        width: 23px;
+
+        height: 23px;
+
+        min-width: 23px;
+
+        font-size: 11px;
+    }
+
+
+    .group-sender-name {
+
+        font-size: 12px;
+    }
+
+
+    .group-chat-image {
+
+        max-width: 240px;
+
+        max-height: 300px;
+    }
+
+
+    .group-chat-video {
+
+        width: 240px;
+    }
+
+
+    .group-document-message-content {
+
+        max-width: 240px;
+    }
+
+}
+
+
+/* =========================================================
+   26. SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .group-chat-messages {
+
+        padding: 12px 8px;
+
+        gap: 7px;
+    }
+
+
+    .group-message-wrapper {
+
+        max-width: 85%;
+    }
+
+
+    .group-message-bubble {
+
+        padding: 8px 11px;
+
+        min-width: 65px;
+    }
+
+
+    .group-normal-message {
+
+        font-size: 14px;
+    }
+
+
+    .group-message-meta span {
+
+        font-size: 12px;
+    }
+
+
+    .group-message-read-icon {
+
+        font-size: 14px;
+    }
+
+
+    .group-sender-avatar {
+
+        width: 22px;
+
+        height: 22px;
+
+        min-width: 22px;
+    }
+
+
+    .group-sender-name {
+
+        font-size: 11px;
+    }
+
+
+    .group-chat-image {
+
+        max-width: 210px;
+
+        max-height: 280px;
+    }
+
+
+    .group-chat-video {
+
+        width: 210px;
+    }
+
+}
+
+/* =========================================
+   GROUPS LIST - DARK MODE
+========================================= */
+
+body.dark-theme .groups-list-panel {
+    background: #0d151c;
+    border-right-color: #26343c;
+}
+
+
+/* =========================================
+   GROUP HEADER
+========================================= */
+
+body.dark-theme .groups-list-header {
+    background: #0d151c;
+    border-bottom-color: #26343c;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+body.dark-theme .groups-title h2 {
+    color: #edf4f5;
+}
+
+
+/* =========================================
+   ADD GROUP BUTTON
+========================================= */
+
+body.dark-theme .groups-add-button {
+    background: #20bbaa;
+    color: #ffffff;
+}
+
+body.dark-theme .groups-add-button:hover {
+    background: #19a99a;
+}
+
+
+/* =========================================
+   GROUP SEARCH
+========================================= */
+
+body.dark-theme .groups-search {
+    background: #18242c;
+}
+
+body.dark-theme .groups-search svg {
+    color: #71858e;
+}
+
+body.dark-theme .groups-search input {
+    color: #e5eef0;
+}
+
+body.dark-theme .groups-search input::placeholder {
+    color: #71858e;
+}
+
+
+/* =========================================
+   GROUP ITEMS
+========================================= */
+
+body.dark-theme .groups-items {
+    background: #0d151c;
+}
+
+
+/* Scrollbar */
+
+body.dark-theme .groups-items::-webkit-scrollbar-thumb {
+    background: #33434b;
+}
+
+
+/* =========================================
+   GROUP ITEM
+========================================= */
+
+body.dark-theme .group-item {
+    background: #0d151c;
+}
+
+body.dark-theme .group-item:hover {
+    background: #14232a;
+}
+
+
+/* Active */
+
+body.dark-theme .group-item.active {
+    background: #123c3d;
+}
+
+
+/* Active Indicator */
+
+body.dark-theme .group-item.active::before {
+    background: #20bbaa;
+}
+
+
+/* =========================================
+   GROUP AVATAR
+========================================= */
+
+body.dark-theme .group-avatar {
+    background: #193b3b;
+    color: #20bbaa;
+}
+
+
+/* Active Avatar */
+
+body.dark-theme .group-item.active .group-avatar {
+    background: #20bbaa;
+    color: #ffffff;
+}
+
+
+/* =========================================
+   GROUP INFORMATION
+========================================= */
+
+body.dark-theme .group-top strong {
+    color: #e2ecee;
+}
+
+body.dark-theme .group-top span {
+    color: #71858e;
+}
+
+
+/* =========================================
+   BOTTOM ROW
+========================================= */
+
+body.dark-theme .group-bottom p {
+    color: #81939a;
+}
+
+
+/* Members */
+
+
+
+/* =========================================
+   ACTIVE TEXT
+========================================= */
+body.dark-theme .group-item.active .group-top span {
+    color: #7d9298;
+}
+
+body.dark-theme .group-item.active .group-bottom p {
+    color: #81969b;
+}
+
+
+/* =========================================
+   GROUP EMPTY PAGE
+========================================= */
+
+body.dark-theme .group-empty {
+    background: #111922;
+}
+
+
+/* Empty Icon */
+
+body.dark-theme .group-empty-icon {
+    background: #193b3b;
+    color: #20bbaa;
+}
+
+
+/* Empty Heading */
+
+body.dark-theme .group-empty h1 {
+    color: #edf4f5;
+}
+
+
+/* Empty Paragraph */
+
+body.dark-theme .group-empty p {
+    color: #7f929b;
+}
+
+@media (max-width: 1100px) {
+
+    .groups-list-panel {
+        width: 400px;
+        min-width: 400px;
+    }
+}
+
+
+@media (max-width: 850px) {
+
+    .groups-list-panel {
+        width: 350px;
+        min-width: 350px;
+    }
+
+    .group-item {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .groups-list-header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .groups-list-panel {
+        width: 100%;
+        min-width: 100%;
+    }
+}

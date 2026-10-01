@@ -1,0 +1,1256 @@
+/* =====================================================
+   PROFILE PAGE
+===================================================== */
+
+.profile-page {
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #f7fafb;
+    color: #0f2d54;
+}
+
+
+/* =====================================================
+   PROFILE LAYOUT
+===================================================== */
+
+.profile-page .messages-layout {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   PROFILE MIDDLE PANEL
+   WhatsApp-style profile panel
+===================================================== */
+
+.profile-list-panel {
+    width: 420px;
+    min-width: 420px;
+    height: 100vh;
+
+    background: #ffffff;
+
+    border-right: 1px solid #dce7e9;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   PROFILE HEADER
+===================================================== */
+
+.profile-header {
+    width: 100%;
+    height: 88px;
+    min-height: 88px;
+
+    padding: 0 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+
+}
+
+
+/* =====================================================
+   HEADER TITLE
+===================================================== */
+
+.profile-header-title {
+    min-width: 0;
+}
+
+
+.profile-header-title h2 {
+    margin: 0;
+
+    font-size: 27px;
+    font-weight: 700;
+
+    color: #0f2d54;
+}
+
+
+.profile-header-title p {
+    margin: 5px 0 0;
+
+    font-size: 14px;
+
+    color: #7590a0;
+}
+
+
+/* =====================================================
+   EDIT BUTTON
+===================================================== */
+
+.profile-header-edit {
+    height: 42px;
+
+    padding: 0 16px;
+
+    border: none;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    background: #e3f6f5;
+
+    color: #08aaa5;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+.profile-header-edit:hover {
+    background: #d4f0ef;
+
+    color: #079792;
+}
+
+
+.profile-header-edit svg {
+    font-size: 14px;
+}
+
+
+
+.profile-items {
+    flex: 1;
+
+    width: 100%;
+
+    padding: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    
+}
+
+
+
+/* =====================================================
+   PROFILE CARD
+===================================================== */
+
+.profile-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: none;
+
+    border-radius: 0;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   PROFILE TOP
+   WhatsApp-like profile information
+===================================================== */
+
+.profile-card-top {
+    width: 100%;
+
+    min-height: 170px;
+
+    padding: 28px 26px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e7eef0;
+}
+
+
+/* =====================================================
+   PROFILE AVATAR
+===================================================== */
+
+.profile-avatar-wrapper {
+    position: relative;
+
+    flex-shrink: 0;
+}
+
+
+.profile-avatar {
+    width: 92px;
+    height: 92px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e2f7f6;
+
+    color: #08aaa5;
+
+    font-size: 40px;
+}
+
+
+/* =====================================================
+   CAMERA BUTTON
+===================================================== */
+
+.profile-camera-btn {
+    position: absolute;
+
+    right: -2px;
+    bottom: 1px;
+
+    width: 31px;
+    height: 31px;
+
+    padding: 0;
+
+    border: 3px solid #ffffff;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #08aaa5;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.profile-camera-btn:hover {
+    background: #079792;
+}
+
+
+.profile-camera-btn svg {
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   PROFILE MAIN INFO
+===================================================== */
+
+.profile-main-info {
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+.profile-main-info h2 {
+    margin: 0 0 6px;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    color: #0f2d54;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   ONLINE STATUS
+===================================================== */
+
+.profile-online {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    font-size: 13px;
+
+    color: #08aaa5;
+}
+
+
+.online-dot {
+    width: 8px;
+    height: 8px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #08aaa5;
+}
+
+
+.profile-main-info p {
+    margin: 9px 0 0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    color: #718b9b;
+}
+
+
+/* =====================================================
+   PERSONAL INFORMATION SECTION
+===================================================== */
+
+.profile-section {
+    width: 100%;
+
+    padding: 28px 26px;
+
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.profile-section-title {
+    margin-bottom: 22px;
+}
+
+
+.profile-section-title h3 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #0f2d54;
+}
+
+
+.profile-section-title p {
+    margin: 5px 0 0;
+
+    font-size: 13px;
+
+    color: #7892a1;
+}
+
+
+/* =====================================================
+   PROFILE FIELDS
+   WhatsApp-like single column layout
+===================================================== */
+
+.profile-fields {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 17px;
+}
+
+
+.profile-field {
+    width: 100%;
+
+    min-width: 0;
+}
+
+
+.profile-field-full {
+    grid-column: auto;
+}
+
+
+/* =====================================================
+   FIELD LABEL
+===================================================== */
+
+.profile-field label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #456b83;
+}
+
+
+/* =====================================================
+   INPUT WRAPPER
+===================================================== */
+
+.profile-input-wrapper {
+    width: 100%;
+    min-height: 48px;
+
+    padding: 0 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    background: #f8fbfc;
+
+    border: 1px solid #d8e5e8;
+
+    border-radius: 9px;
+
+    transition: all 0.2s ease;
+}
+
+
+.profile-input-wrapper svg {
+    flex-shrink: 0;
+
+    color: #8ca4ad;
+
+    font-size: 14px;
+}
+
+
+.profile-input-wrapper input,
+.profile-input-wrapper textarea {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #486d85;
+
+    font-size: 13px;
+
+    font-family: inherit;
+}
+
+
+.profile-input-wrapper input:disabled,
+.profile-input-wrapper textarea:disabled {
+    cursor: default;
+
+    opacity: 1;
+}
+
+
+/* =====================================================
+   INPUT FOCUS
+===================================================== */
+
+.profile-input-wrapper:focus-within {
+    background: #ffffff;
+
+    border-color: #08aaa5;
+
+    box-shadow: 0 0 0 3px rgba(8, 170, 165, 0.08);
+}
+
+
+/* =====================================================
+   TEXTAREA
+===================================================== */
+
+.profile-textarea-wrapper {
+    min-height: 82px;
+
+    align-items: flex-start;
+
+    padding-top: 14px;
+}
+
+
+.profile-textarea-wrapper textarea {
+    min-height: 52px;
+
+    resize: vertical;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   FORM BUTTONS
+===================================================== */
+
+.profile-form-actions {
+    margin-top: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+}
+
+
+/* =====================================================
+   CANCEL BUTTON
+===================================================== */
+
+.profile-cancel-btn {
+    height: 40px;
+
+    padding: 0 17px;
+
+    border: 1px solid #d5e1e4;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #607d8b;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.profile-cancel-btn:hover {
+    background: #f5f8f9;
+
+    border-color: #c5d5d8;
+}
+
+
+/* =====================================================
+   SAVE BUTTON
+===================================================== */
+
+.profile-save-btn {
+    height: 40px;
+
+    padding: 0 17px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    background: #08aaa5;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.profile-save-btn:hover {
+    background: #079792;
+}
+
+
+.profile-save-btn svg {
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   ACCOUNT & PRIVACY
+===================================================== */
+
+.profile-settings-card {
+    width: 100%;
+
+    margin-top: 0;
+
+    background: #ffffff;
+
+    border: none;
+
+    border-radius: 0;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   SETTINGS HEADER
+===================================================== */
+
+.profile-settings-header {
+    padding: 25px 26px 18px;
+
+    border-top: 1px solid #e7eef0;
+
+    border-bottom: 1px solid #e7eef0;
+}
+
+
+.profile-settings-header h3 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #0f2d54;
+}
+
+
+.profile-settings-header p {
+    margin: 5px 0 0;
+
+    font-size: 13px;
+
+    color: #7892a1;
+}
+
+
+/* =====================================================
+   SETTINGS LIST
+===================================================== */
+
+.profile-settings-list {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =====================================================
+   SETTING ITEM
+===================================================== */
+
+.profile-setting-item {
+    min-height: 78px;
+
+    padding: 16px 26px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #edf2f3;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+
+.profile-setting-item:hover {
+    background: #f7fbfb;
+}
+
+
+.profile-setting-item:last-child {
+    border-bottom: none;
+}
+
+
+/* =====================================================
+   SETTING ICON
+===================================================== */
+
+.profile-setting-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e3f6f5;
+
+    color: #08aaa5;
+}
+
+
+.profile-setting-icon svg {
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   SETTING INFORMATION
+===================================================== */
+
+.profile-setting-info {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.profile-setting-info strong {
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #173c5e;
+}
+
+
+.profile-setting-info span {
+    font-size: 12px;
+
+    color: #7892a1;
+}
+
+
+/* =====================================================
+   RIGHT EMPTY PROFILE AREA
+===================================================== */
+
+.profile-empty {
+    flex: 1;
+
+    height: 100vh;
+
+    background: #f7fafb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-left: 1px solid #e0e9eb;
+}
+
+
+/* =====================================================
+   EMPTY CONTENT
+===================================================== */
+
+.profile-empty-content {
+    width: 520px;
+
+    padding: 30px;
+
+    text-align: center;
+}
+
+
+.profile-empty-icon {
+    width: 92px;
+    height: 92px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e2f7f6;
+
+    color: #08aaa5;
+
+    font-size: 42px;
+}
+
+
+.profile-empty-content h2 {
+    margin: 0;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    color: #0f2d54;
+}
+
+
+.profile-empty-content p {
+    max-width: 500px;
+
+    margin: 12px auto 24px;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    color: #7892a1;
+}
+
+
+/* =====================================================
+   EMPTY ACTIONS
+===================================================== */
+
+.profile-empty-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+
+.profile-empty-action {
+    min-width: 155px;
+    height: 48px;
+
+    padding: 0 18px;
+
+    border: 1px solid #dce8ea;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    color: #5d8192;
+
+    font-size: 13px;
+
+    transition: all 0.2s ease;
+}
+
+
+.profile-empty-action svg {
+    color: #08aaa5;
+}
+
+
+.profile-empty-action:hover {
+    border-color: #08aaa5;
+
+    background: #f0fbfa;
+}
+
+
+/* =====================================================
+   DARK THEME
+===================================================== */
+
+body.dark-theme .profile-page {
+    background: #111b21;
+
+    color: #e9edef;
+}
+
+
+body.dark-theme .profile-list-panel {
+    background: #111b21;
+
+    border-right-color: #27343a;
+}
+
+
+body.dark-theme .profile-header {
+    background: #111b21;
+
+    border-bottom-color: #27343a;
+}
+
+
+body.dark-theme .profile-header-title h2,
+body.dark-theme .profile-main-info h2,
+body.dark-theme .profile-section-title h3,
+body.dark-theme .profile-settings-header h3,
+body.dark-theme .profile-empty-content h2 {
+    color: #e9edef;
+}
+
+
+body.dark-theme .profile-header-title p,
+body.dark-theme .profile-main-info p,
+body.dark-theme .profile-section-title p,
+body.dark-theme .profile-settings-header p,
+body.dark-theme .profile-setting-info span,
+body.dark-theme .profile-empty-content p {
+    color: #8696a0;
+}
+
+
+
+
+/* =====================================================
+   DARK PROFILE CARD
+===================================================== */
+
+body.dark-theme .profile-card,
+body.dark-theme .profile-settings-card {
+    background: #111b21;
+
+    border-color: #27343a;
+}
+
+
+body.dark-theme .profile-card-top {
+    background: #111b21;
+
+    border-bottom-color: #27343a;
+}
+
+
+body.dark-theme .profile-section {
+    background: #111b21;
+}
+
+
+/* =====================================================
+   DARK INPUT
+===================================================== */
+
+body.dark-theme .profile-input-wrapper {
+    background: #202c33;
+
+    border-color: #34434b;
+}
+
+
+body.dark-theme .profile-input-wrapper input,
+body.dark-theme .profile-input-wrapper textarea {
+    color: #d8e0e3;
+}
+
+
+body.dark-theme .profile-input-wrapper:focus-within {
+    background: #202c33;
+
+    border-color: #08aaa5;
+}
+
+
+body.dark-theme .profile-field label {
+    color: #9aaab2;
+}
+
+
+/* =====================================================
+   DARK SETTINGS
+===================================================== */
+
+body.dark-theme .profile-settings-header {
+    background: #111b21;
+
+    border-top-color: #27343a;
+    border-bottom-color: #27343a;
+}
+
+
+body.dark-theme .profile-setting-item {
+    background: #111b21;
+
+    border-bottom-color: #27343a;
+}
+
+
+body.dark-theme .profile-setting-item:hover {
+    background: #182229;
+}
+
+
+body.dark-theme .profile-setting-info strong {
+    color: #e9edef;
+}
+
+
+/* =====================================================
+   DARK BUTTONS
+===================================================== */
+
+body.dark-theme .profile-cancel-btn {
+    background: #202c33;
+
+    border-color: #34434b;
+
+    color: #d0d9dd;
+}
+
+
+body.dark-theme .profile-cancel-btn:hover {
+    background: #26343b;
+}
+
+
+body.dark-theme .profile-header-edit {
+    background: #163c3d;
+
+    color: #27c9c2;
+}
+
+
+body.dark-theme .profile-header-edit:hover {
+    background: #1b4b4c;
+}
+
+
+/* =====================================================
+   DARK EMPTY AREA
+===================================================== */
+
+body.dark-theme .profile-empty {
+    background: #111b21;
+
+    border-left-color: #27343a;
+}
+
+
+body.dark-theme .profile-empty-action {
+    background: #202c33;
+
+    border-color: #34434b;
+
+    color: #b7c4ca;
+}
+
+
+body.dark-theme .profile-empty-action:hover {
+    background: #26343b;
+
+    border-color: #08aaa5;
+}
+
+
+.profile-items::-webkit-scrollbar {
+    width: 5px;
+}
+body.dark-theme .profile-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.profile-items::-webkit-scrollbar-thumb {
+    background: #dee2e2;
+    border-radius: 20px;
+}
+body.dark-theme .profile-items::-webkit-scrollbar-thumb {
+    background: #19242d;
+    border-radius: 20px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .profile-list-panel {
+        width: 440px;
+        min-width: 440px;
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .profile-list-panel {
+        width: 100%;
+        min-width: 100%;
+    }
+
+
+    .profile-empty {
+        display: none;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .profile-header {
+        height: 76px;
+        min-height: 76px;
+
+        padding: 0 16px;
+    }
+
+
+    .profile-header-title h2 {
+        font-size: 23px;
+    }
+
+
+    .profile-header-title p {
+        margin-top: 3px;
+
+        font-size: 12px;
+    }
+
+
+    .profile-header-edit {
+        width: 40px;
+
+        padding: 0;
+
+        justify-content: center;
+    }
+
+
+    .profile-header-edit span {
+        display: none;
+    }
+
+
+    .profile-card-top {
+        min-height: 145px;
+
+        padding: 22px 18px;
+
+        gap: 15px;
+    }
+
+
+    .profile-avatar {
+        width: 72px;
+        height: 72px;
+
+        font-size: 31px;
+    }
+
+
+    .profile-camera-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+
+    .profile-main-info h2 {
+        font-size: 19px;
+    }
+
+
+    .profile-main-info p {
+        font-size: 12px;
+    }
+
+
+    .profile-section {
+        padding: 22px 18px;
+    }
+
+
+    .profile-section-title h3 {
+        font-size: 17px;
+    }
+
+
+    .profile-settings-header {
+        padding: 22px 18px 17px;
+    }
+
+
+    .profile-setting-item {
+        padding: 15px 18px;
+    }
+
+
+    .profile-setting-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .profile-empty {
+        display: none;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .profile-header {
+        padding: 0 13px;
+    }
+
+
+    .profile-card-top {
+        padding: 20px 14px;
+
+        gap: 12px;
+    }
+
+
+    .profile-section {
+        padding: 20px 14px;
+    }
+
+
+    .profile-setting-item {
+        padding: 14px;
+    }
+
+
+    .profile-main-info h2 {
+        font-size: 17px;
+    }
+
+}

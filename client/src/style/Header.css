@@ -1,0 +1,372 @@
+/* =========================
+   Header
+========================= */
+
+.chatmsg-header {
+    width: 100%;
+    background: rgb(2, 155, 133);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* =========================
+   Navbar Container
+========================= */
+
+.chatmsg-navbar {
+    width: 100%;
+    max-width: 1400px;
+    height: 78px;
+    margin: auto;
+
+    padding: 0 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* =========================
+   Logo
+========================= */
+
+.chatmsg-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.chatmsg-logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 145px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* =========================
+   Center Menu
+========================= */
+
+.chatmsg-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 38px;
+
+    margin-left: 40px;
+}
+
+.chatmsg-menu a {
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    position: relative;
+
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+
+.chatmsg-menu a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: #ffffff;
+
+    transition: width 0.3s ease;
+}
+
+.chatmsg-menu a:hover::after {
+    width: 100%;
+}
+
+.chatmsg-menu a:hover {
+    color: #ffffff;
+}
+
+/* =========================
+   Right Actions
+========================= */
+
+.chatmsg-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    flex-shrink: 0;
+}
+
+/* =========================
+   Theme Button
+========================= */
+
+.theme-btn {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+
+    background: transparent;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: rotate(10deg);
+}
+
+/* =========================
+   Login Button
+========================= */
+
+.login-btn {
+    min-width: 95px;
+    height: 42px;
+
+    padding: 0 22px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: rgb(2, 155, 133);
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #f1f1f1;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   Mobile Menu Button
+========================= */
+
+.mobile-menu-btn {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 23px;
+
+    cursor: pointer;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 1050px) {
+
+    .chatmsg-navbar {
+        padding: 0 25px;
+    }
+
+    .chatmsg-menu {
+        gap: 22px;
+        margin-left: 20px;
+    }
+
+    .chatmsg-menu a {
+        font-size: 14px;
+    }
+}
+
+/* =========================
+   Tablet / Mobile
+========================= */
+
+@media (max-width: 850px) {
+
+    .chatmsg-navbar {
+        height: 70px;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    .logo-img {
+        width: 125px;
+    }
+
+    /* Show mobile button */
+
+    .mobile-menu-btn {
+        display: block;
+
+        margin-left: auto;
+        margin-right: 15px;
+    }
+
+    /* Menu */
+
+    .chatmsg-menu {
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        margin: 0;
+        padding: 25px 20px;
+
+        background: rgb(2, 155, 133);
+
+        flex-direction: column;
+        align-items: center;
+
+        gap: 22px;
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .chatmsg-menu.menu-open {
+        display: flex;
+    }
+
+    /* Right actions */
+
+    .chatmsg-actions {
+        gap: 8px;
+    }
+
+    .theme-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .login-btn {
+        min-width: 80px;
+        height: 38px;
+
+        padding: 0 16px;
+    }
+}
+
+/* =========================
+   Small Mobile
+========================= */
+
+@media (max-width: 480px) {
+
+    .chatmsg-navbar {
+        padding: 0 15px;
+    }
+
+    .logo-img {
+        width: 110px;
+    }
+
+    .mobile-menu-btn {
+        font-size: 20px;
+        margin-right: 8px;
+    }
+
+    .login-btn {
+        min-width: 72px;
+        padding: 0 12px;
+        font-size: 14px;
+    }
+}
+
+
+/* =========================
+   LIGHT THEME
+========================= */
+
+.chatmsg-header {
+    background: #029b85;
+    transition: background 0.3s ease;
+}
+
+
+/* =========================
+   DARK THEME
+========================= */
+
+body.dark-mode {
+    background: #111922;
+    color: #ffffff;
+}
+
+body.dark-mode .chatmsg-header {
+    background: #0d151c;
+}
+
+body.dark-mode .chatmsg-navbar {
+    background: #0d151c;
+}
+
+body.dark-mode .chatmsg-menu {
+    background: #0d151c;
+}
+
+body.dark-mode .chatmsg-menu a {
+    color: #ffffff;
+}
+
+body.dark-mode .chatmsg-menu a::after {
+    background: #029b85;
+}
+
+body.dark-mode .theme-btn {
+    background: #111922;
+    border: 1px solid #263541;
+    color: #ffffff;
+}
+
+body.dark-mode .theme-btn:hover {
+    background: #029b85;
+    border-color: #029b85;
+}
+
+body.dark-mode .login-btn {
+    background: #029b85;
+    color: #ffffff;
+}
+
+body.dark-mode .login-btn:hover {
+    background: #008f72;
+}
+
+body.dark-mode .mobile-menu-btn {
+    color: #ffffff;
+}
