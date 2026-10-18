@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
 import "../style/Header.css";
 import { useNavigate } from "react-router";
+import logo from "../assets/logo3.png";
 
 const Header = () => {
     const [darkMode, setDarkMode] = useState(false);
@@ -22,7 +23,7 @@ const Header = () => {
             <div className="chatmsg-navbar">
                 <div className="chatmsg-logo">
                     <a href="/" onClick={closeMenu}>
-                        <img src="./src/assets/logo3.png" alt="ChatMsg Logo" className="logo-img"  />
+                        <img src={logo} alt="ChatMsg Logo" className="logo-img"  />
                     </a>
                 </div>
                 <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
