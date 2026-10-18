@@ -25,10 +25,17 @@ connectDB();
 
 
 // Middleware
+
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://chatmsg-chat-application-jyiq.vercel.app",
+];
+
 app.use(
     cors({
-        origin: "http://localhost:5173",
-        methods: ["GET", "POST", "PUT", "DELETE"],
+        origin: allowedOrigins,
+        methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
     })
 );
 
